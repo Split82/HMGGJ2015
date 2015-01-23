@@ -28,7 +28,7 @@ public class PlayerJump : MonoBehaviour {
 
 	private Rigidbody2D _rigidbody2D;
 
-	private const float kCanGroundTimeInterval = 0.05f;
+	private const float kCanGroundTimeInterval = 0.1f;
 
 	void Awake() {
 
