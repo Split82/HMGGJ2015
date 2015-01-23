@@ -6,7 +6,7 @@ using System.Collections;
 public class GameCameraFollow : MonoBehaviour {
 
 	public Rigidbody2D _targetRigidBody2D;
-	public FaceDirection _faceDirection;
+	public PlayerFaceDirection _playerFaceDirection;
 	public Vector3 _offset;
 	public float _directionOffset;
 	public float _friction = 0.9f;
@@ -18,7 +18,7 @@ public class GameCameraFollow : MonoBehaviour {
 	void Start() {
 
 		Check.Null(_targetRigidBody2D);
-		Check.Null(_faceDirection);
+		Check.Null(_playerFaceDirection);
 		
 		_rigidBody2D = rigidbody2D;
 		transform.position = (Vector3)_targetRigidBody2D.position + _offset;
@@ -28,7 +28,7 @@ public class GameCameraFollow : MonoBehaviour {
 	void FixedUpdate() {
 
 		_destinationPos = _targetRigidBody2D.position + (Vector2)_offset;
-		_destinationPos.x += _faceDirection.Direction == FaceDirection.DirectionEnum.Left ? -_directionOffset : _directionOffset;
+		_destinationPos.x += _playerFaceDirection.Direction == PlayerFaceDirection.DirectionEnum.Left ? -_directionOffset : _directionOffset;
 
 		Vector2 velocity = _rigidBody2D.velocity;
 

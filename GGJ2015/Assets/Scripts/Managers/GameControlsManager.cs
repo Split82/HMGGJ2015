@@ -21,9 +21,9 @@ public class GameControlsManager : Singleton<GameControlsManager> {
 		}
 	}
 
-	public bool ShootButonIsActive {
+	public bool FireButonIsActive {
 		get {
-			return Input.GetKey(KeyCode.RightArrow);
+			return Input.GetKey(KeyCode.X);
 		}
 	}
 }
