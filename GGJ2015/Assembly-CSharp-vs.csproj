@@ -46,9 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\GameCameraFollow.cs" />
      <Compile Include="Assets\Scripts\Helpers\Billboard.cs" />
      <Compile Include="Assets\Scripts\Helpers\EnumFlagAttribute.cs" />
      <Compile Include="Assets\Scripts\Helpers\EssentialExtensions.cs" />
+     <Compile Include="Assets\Scripts\Helpers\FaceDirection.cs" />
      <Compile Include="Assets\Scripts\Helpers\FlexyFollow.cs" />
      <Compile Include="Assets\Scripts\Helpers\FollowLocalRotation.cs" />
      <Compile Include="Assets\Scripts\Helpers\FullscreenAlign.cs" />
@@ -65,7 +67,9 @@
      <Compile Include="Assets\Scripts\Helpers\SortingLayer\SortingLayer.cs" />
      <Compile Include="Assets\Scripts\Helpers\TagPropertyAttribute.cs" />
      <Compile Include="Assets\Scripts\Managers\GameControlsManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameplayManager.cs" />
      <Compile Include="Assets\Scripts\Player\GroundedCheck.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerJump.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
  <Reference Include="UnityEngine.UI">
