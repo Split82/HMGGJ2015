@@ -20,6 +20,18 @@ public class Room
 									   "XXXXXXXXXX",
 									   "XXXXXXXXXX" };
 				break;
+			case '-':
+				tiles = new string[] { "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "..........",
+									   "..........",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX" };
+				break;
 			case 'v':
 				tiles = new string[] { "XXXXXXXXXX",
 									   "XXXXXXXXXX",
@@ -37,18 +49,6 @@ public class Room
 									   "XXXX..XXXX",
 									   "XXXX..XXXX",
 									   "XXXX..XXXX",
-									   "..........",
-									   "..........",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
-				break;
-			case '-':
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
 									   "..........",
 									   "..........",
 									   "XXXXXXXXXX",
