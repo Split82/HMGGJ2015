@@ -6,16 +6,20 @@ using System;
 
 public class PlayerMovement : MonoBehaviour {
 
-	public float _force;
-	public float _friction = 0.9f;
+	public float _groundForce = 200.0f;
+	public float _airForce = 50.0f;
+	public float _groundFriction = 0.9f;
+	public float _airFriction = 0.95f;
+	public Vector2 _maxVelocity;
+	public GroundedCheck _groundedCheck;
 
 	private Rigidbody2D _rigidBody2D;
 	private GameControlsManager _gameControlsManager;
 
 	void Start() {
 	
+		Check.Null(_groundedCheck);
 		_rigidBody2D = GetComponent<Rigidbody2D>();
-
 		_gameControlsManager = GameControlsManager.Instance;
 	}
 
@@ -23,15 +27,31 @@ public class PlayerMovement : MonoBehaviour {
 			
 		Vector2 velocity = _rigidBody2D.velocity;
 
+		float friction;
+		float force;
+
+		if (_groundedCheck.IsGrounded) {
+			friction = _groundFriction;
+			force = _groundForce;
+		}
+		else {
+			friction = _airFriction;
+			force = _airForce;
+		}
+
 		// Add velocity
 		if (_gameControlsManager.LeftButtonIsActive) {
-			velocity -= new Vector2 (1.0f, 0.0f) * _force * Time.fixedDeltaTime;
+			velocity -= new Vector2 (1.0f, 0.0f) * force * Time.fixedDeltaTime;
 		}
 		else if (_gameControlsManager.RightButtonIsActive) {
-			velocity += new Vector2 (1.0f, 0.0f) * _force * Time.fixedDeltaTime;
+			velocity += new Vector2 (1.0f, 0.0f) * force * Time.fixedDeltaTime;
 		}
-		
-		velocity.x *= _friction;
+		else {
+			velocity.x *= friction;
+		}
+
+		velocity.x = Mathf.Clamp(velocity.x, -_maxVelocity.x, _maxVelocity.x);
+		velocity.y = Mathf.Clamp(velocity.y, -_maxVelocity.y, _maxVelocity.y);
 
 		_rigidBody2D.velocity = velocity;
 	}

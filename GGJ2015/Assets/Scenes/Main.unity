@@ -97,7 +97,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 474055829}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e595af9d00318406cb13a673eaa95316, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 599489022}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e595af9d00318406cb13a673eaa95316, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
@@ -350,7 +350,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1352121475}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e595af9d00318406cb13a673eaa95316, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 50, y: 1}
   m_Center: {x: 0, y: 0}
@@ -548,8 +548,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7521a7719fd494bb6ff9ad4318d7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 200
-  _friction: .699999988
+  _groundForce: 200
+  _airForce: 50
+  _groundFriction: .899999976
+  _airFriction: .920000017
+  _maxVelocity: {x: 5, y: 10}
+  _groundedCheck: {fileID: 2086091450}
 --- !u!61 &2086091447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -557,9 +561,9 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086091445}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e595af9d00318406cb13a673eaa95316, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: .5, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!50 &2086091448
 Rigidbody2D:
@@ -570,7 +574,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 3
+  m_GravityScale: 5
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -604,7 +608,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _offset: {x: 0, y: -.600000024}
-  _size: {x: 1, y: .200000003}
+  _size: {x: .5, y: .200000003}
 --- !u!114 &2086091451
 MonoBehaviour:
   m_ObjectHideFlags: 0
