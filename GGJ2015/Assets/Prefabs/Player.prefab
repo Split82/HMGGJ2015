@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 499322}
   - 212: {fileID: 21299322}
   m_Layer: 0
-  m_Name: what_char
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,6 +29,8 @@ GameObject:
   - 114: {fileID: 11499326}
   - 114: {fileID: 11499322}
   - 114: {fileID: 11499324}
+  - 114: {fileID: 11477728}
+  - 114: {fileID: 11477730}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -85,8 +87,32 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e595af9d00318406cb13a673eaa95316, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: .5, y: 1}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .5, y: .899999976}
+  m_Center: {x: 0, y: -.0299999993}
+--- !u!114 &11477728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0417664175040b0bad59bb382dcd82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 5099322}
+  _playerTransform: {fileID: 499324}
+--- !u!114 &11477730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea80af0f8edfe4905b69b98e9c2e9f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11499322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -98,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6811ef9307b54025a9f606d17798221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startJumpEnergy: 800
+  _startJumpEnergy: 900
   _jumpVelocity: 0
   _jumpEnergyDepletionMul: .5
 --- !u!114 &11499324
@@ -128,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7521a7719fd494bb6ff9ad4318d7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundForce: 250
+  _groundForce: 300
   _airForce: 50
   _groundFriction: .800000012
   _airFriction: .920000017

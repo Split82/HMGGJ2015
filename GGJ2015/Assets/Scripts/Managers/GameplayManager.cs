@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameplayManager : MonoBehaviour {
+public class GameplayManager : Singleton<GameplayManager> {
 
 	public PlayerController _playerController;
 
