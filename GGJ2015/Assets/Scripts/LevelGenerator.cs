@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections;
 
 public class Room
@@ -75,8 +74,7 @@ public class LevelGenerator : MonoBehaviour {
 
 		rooms = new char[roomsx, roomsy];
 		tiles = new char[roomsx * tilesx, roomsy * tilesy];
-		Random rnd = new Random();
-
+	
 		// generate rooms
 		for (int j = 0; j < roomsy; j++) {
 			for (int i = 0; i < roomsx; i++) {
@@ -85,7 +83,7 @@ public class LevelGenerator : MonoBehaviour {
 		}
 		for (int j = 0; j < roomsy - 1; j++) {
 			for (;;) {
-				int i = rnd.Next(0, roomsx);
+				int i = Random.Range(0, roomsx);
 				if (rooms[i, j] == '-') {
 					rooms[i, j] = 'v';
 					rooms[i, j + 1] = '^';
@@ -98,8 +96,8 @@ public class LevelGenerator : MonoBehaviour {
 			while (rooms[l, j] == '-' && l < roomsx) l++;
 			int r = roomsx - 1;
 			while (rooms[r, j] == '-' && r >= 0) r--;
-			l = rnd.Next(0, l);
-			r = rnd.Next(r + 1, roomsx);
+			l = Random.Range(0, l);
+			r = Random.Range(r + 1, roomsx);
 			for (int i = 0; i < l; i++) rooms[i, j] = '.';
 			for (int i = r; i < roomsx; i++) rooms[i, j] = '.';
 		}
