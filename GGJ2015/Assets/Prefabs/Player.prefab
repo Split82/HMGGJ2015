@@ -168,13 +168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd7cf9698aef4ccdb92e668d591408f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireballPrefab: {fileID: 0}
+  _fireballPrefab: {fileID: 11468266, guid: d6686362b7f62430bb2f81030eb2d66a, type: 2}
   _firePointTransform: {fileID: 420688}
   _playerFaceDirection: {fileID: 11420688}
-  _shotsPerSecond: 5
-  _bulletSpeed: 100
-  _randomness: .200000003
-  _bulletShellLaunchPosOffset: 6
+  _shotsPerSecond: 15
+  _bulletSpeed: 30
+  _randomness: .100000001
 --- !u!114 &11420692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 5099322}
+  _playerTransform: {fileID: 499324}
 --- !u!114 &11499322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,7 +216,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _offset: {x: 0, y: -.550000012}
-  _size: {x: .5, y: .100000001}
+  _size: {x: .449999988, y: .100000001}
 --- !u!114 &11499326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,7 +232,7 @@ MonoBehaviour:
   _airForce: 50
   _groundFriction: .800000012
   _airFriction: .920000017
-  _maxVelocity: {x: 5, y: 10}
+  _maxVelocity: {x: 6, y: 10}
   _groundedCheck: {fileID: 11499324}
 --- !u!212 &21299322
 SpriteRenderer:
