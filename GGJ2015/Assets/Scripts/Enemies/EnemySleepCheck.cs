@@ -22,6 +22,8 @@ public class EnemySleepCheck : MonoBehaviour {
 	void Start() {
 		_transform = transform;
 		_playerTransform = GameplayManager.Instance._playerController._playerTransform;
+
+		StartCoroutine(CheckSleep());
 	}
 
 	IEnumerator CheckSleep() {
