@@ -64,7 +64,7 @@ public class BasicEnemyMovement : MonoBehaviour {
 		else {
 			velocity.x *= friction;
 		}
-		
+
 		velocity.x = Mathf.Clamp(velocity.x, -_maxVelocity.x, _maxVelocity.x);
 		velocity.y = Mathf.Clamp(velocity.y, -_maxVelocity.y, _maxVelocity.y);
 		
