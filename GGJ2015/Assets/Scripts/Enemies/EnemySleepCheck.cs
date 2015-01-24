@@ -7,7 +7,7 @@ public class EnemySleepCheck : MonoBehaviour {
 	public Transform _transform;
 
 	private Rigidbody2D _rigidBody2D;
-	private float _sleepDistance = 5;
+	private float _sleepDistance = 50;
 
 	void Awake() {
 
