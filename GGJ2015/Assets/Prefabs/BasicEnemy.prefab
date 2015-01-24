@@ -76,6 +76,7 @@ GameObject:
   - 114: {fileID: 11422232}
   - 114: {fileID: 11422230}
   - 114: {fileID: 11421194}
+  - 114: {fileID: 11439842}
   m_Layer: 10
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -140,7 +141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.81466675, y: 3.83892298, z: 0}
+  m_LocalPosition: {x: 162.593414, y: -94.1167526, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 419746}
@@ -253,6 +254,17 @@ MonoBehaviour:
     m_Bits: 512
   _offset: {x: 0, y: -.600000024}
   _size: {x: .5, y: .200000003}
+--- !u!114 &11439842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1162244b96e504ca4ac1fa12cea16e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21219746
 SpriteRenderer:
   m_ObjectHideFlags: 1
