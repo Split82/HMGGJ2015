@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour {
 	private StateEnum _state;
 	private float _defaultGravityScale;
 
+	public HitDetector _receiveDamageHitDetector;
+
 	void Awake() {
 
 		_defaultGravityScale = _rigidbody2D.gravityScale;
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour {
 		Check.Null(_fireStaff);
 		Check.Null(_playerRopeMovement);
 		Check.Null(_groundedCheck);
+		Check.Null(_receiveDamageHitDetector);
 	}
 
 	void Start() {
@@ -92,6 +95,16 @@ public class PlayerController : MonoBehaviour {
 				_playerJump.ForcedJump();
 			}
 		};
+
+		_receiveDamageHitDetector.TriggerDidEnterEvent += ReceiveDamageTriggerDidEnter;
 	}
-	
+
+	void ReceiveDamageTriggerDidEnter(GameObject triggerObject, GameObject triggeredObject) {
+
+		switch (triggerObject.tag) {
+			case "BasicEmeny" : {
+				break;
+			}
+		}
+	}
 }
