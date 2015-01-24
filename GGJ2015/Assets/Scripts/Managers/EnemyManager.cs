@@ -22,12 +22,7 @@ public class EnemyManager : Singleton<EnemyManager> {
 	void Start () {
 	
 	}
-	
-	public void AddSpawnZone(EnemySpawnZone spawnZone) {
-	}
 
-	public void RemoveSpawnZone(EnemySpawnZone spawnZone) {
-	}
 
 	public void AddEnemy(GameObject enemy) {
 

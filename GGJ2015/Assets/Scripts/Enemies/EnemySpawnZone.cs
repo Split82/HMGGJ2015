@@ -20,27 +20,22 @@ public class EnemySpawnZone : MonoBehaviour {
 	void Start () {
 	
 		_enemyManager = EnemyManager.Instance;
+
+		for (int i = 0; i < _enemyGroupsSpawnParams.Length; i++) {
+			StartCoroutine(SpawnGroup(i));
+		}
 	}
 
-	void OnEnable() {
-
-		EnemyManager.Instance.AddSpawnZone (this);
-	}
-	
-	void OnDisable() {
-		
-		EnemyManager.Instance.RemoveSpawnZone (this);
-	}
 
 	IEnumerator SpawnGroup(int groupIndex) {
 
-		while (_enemyGroupsSpawnParams.Length <= groupIndex &&  _enemySpawnZoneRects.Length > 0) {
+		while (_enemyGroupsSpawnParams.Length > groupIndex &&  _enemySpawnZoneRects.Length > 0) {
 			Rect spawnRect = _enemySpawnZoneRects[Random.Range(0, _enemySpawnZoneRects.Length)];
 			EnemyGroupSpawnParams spawnParams = _enemyGroupsSpawnParams[groupIndex];
 			if (CanSpawnEnemies(spawnParams._enemyPrefabs.Length)) {
 				foreach (GameObject enemyPrefab in spawnParams._enemyPrefabs) {
 					GameObject enemy = (GameObject)Instantiate(enemyPrefab);
-					enemy.transform.position = new Vector3(Random.Range(spawnRect.xMin, spawnRect.xMax), Random.Range(spawnRect.yMin, spawnRect.yMax));
+					enemy.transform.position = new Vector3(Random.Range(spawnRect.xMin, spawnRect.xMax), Random.Range(spawnRect.yMin, spawnRect.yMax)) + transform.position;
 					EnemyLifetimeNotifier enemyLifetimeNotifier = enemy.GetComponent<EnemyLifetimeNotifier>();
 					enemyLifetimeNotifier.EnemyDidSpawnEvent += EnemyDidSpawn;
 					enemyLifetimeNotifier.EnemyWasKilledEvent += EnemyWasKilled;
