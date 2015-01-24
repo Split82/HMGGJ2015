@@ -5,71 +5,20 @@ public class Room
 {
 	public string[] tiles;
 
+	private string[] LoadRes(string type, int max) {
+		string index = Random.Range(1, max + 1).ToString("00");
+		string name = "room_" + type + "_" + index;
+		return (Resources.Load(name) as TextAsset).text.Split('\n');
+	}
+
 	public Room(char type) {
 		switch (type) {
-			case 'S': // start
-				tiles = (Resources.Load("room_start_01") as TextAsset).text.Split('\n');
-				break;
-			case 'E': // exit
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "..........",
-									   "....E.....",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
-				break;
-			case '.': // closed
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
-				break;
-			case '-': // straight
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "..........",
-									   "..........",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
-				break;
-			case 'v': // drop
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "..........",
-									   "..........",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX" };
-				break;
-			case '^': // climb
-				tiles = new string[] { "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "..........",
-									   "..........",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
-				break;
+			case 'S': tiles = LoadRes("start"    , 1); break;
+			case 'E': tiles = LoadRes("exit"     , 1); break;
+			case '.': tiles = LoadRes("closed"   , 4); break;
+			case '-': tiles = LoadRes("straight" , 4); break;
+			case 'v': tiles = LoadRes("drop"     , 4); break;
+			case '^': tiles = LoadRes("climb"    , 4); break;
 		}
 	}
 }
