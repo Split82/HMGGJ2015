@@ -7,6 +7,15 @@ public class RhinoEnemyController : MonoBehaviour {
 	public BasicMovementCheck _basicMovementCheck;	
 	public EnemySleepCheck _enemySleepCheck;
 	public EnemySeeHorizontalPlayerCheck _enemySeePlayerCheck;
+	public float _maxHealth;
+	public HitDetector _damageReceiveHitDetector;
+	
+	private float _health;
+
+	void Awake() {
+
+		_health = _maxHealth;
+	}
 
 	void Start() {
 
@@ -14,6 +23,10 @@ public class RhinoEnemyController : MonoBehaviour {
 		Check.Null(_basicMovement);
 		Check.Null(_basicMovementCheck);
 		Check.Null(_enemySleepCheck);
+		Check.Null(_damageReceiveHitDetector);
+		
+		_damageReceiveHitDetector.TriggerDidEnterEvent += DamageReceiveTriggerDidEnter;
+
 		
 		_basicMovementCheck.CanNotMoveInTheSameDirectionEvent += () => {
 			_basicMovement.Direction = DirectionClass.Opposite(_basicMovement.Direction);
@@ -43,5 +56,19 @@ public class RhinoEnemyController : MonoBehaviour {
 			_basicMovement.Direction = _enemySeePlayerCheck.SimpleDirectionToPlayer;
 			_basicMovementCheck.Direction = _basicMovement.Direction;
 		}
+	}
+
+	void ApplyDamage(float damageAmount) {
+		
+		_health -= damageAmount;
+		if (_health <= 0) {
+			gameObject.Recycle();
+		}
+	}
+	
+	void DamageReceiveTriggerDidEnter(Collider2D otherCollider) {
+		
+		Fireball fireball = otherCollider.gameObject.GetComponent<Fireball>();
+		ApplyDamage (fireball._damage);
 	}
 }
