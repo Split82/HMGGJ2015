@@ -2043,7 +2043,7 @@ MonoBehaviour:
   _firePointTransform: {fileID: 1413459289}
   _playerFaceDirection: {fileID: 2086091453}
   _shotsPerSecond: 10
-  _bulletSpeed: 25
+  _bulletSpeed: 15
   _randomness: .100000001
 --- !u!1 &659053736
 GameObject:
@@ -2831,7 +2831,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11420690, guid: b673532f038cb43a49723f1797c921ac, type: 2}
       propertyPath: _bulletSpeed
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11420690, guid: b673532f038cb43a49723f1797c921ac, type: 2}
       propertyPath: _shotsPerSecond
@@ -2844,6 +2844,26 @@ Prefab:
     - target: {fileID: 11499326, guid: b673532f038cb43a49723f1797c921ac, type: 2}
       propertyPath: _groundForce
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124854, guid: b673532f038cb43a49723f1797c921ac, type: 2}
+      propertyPath: m_Size.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124854, guid: b673532f038cb43a49723f1797c921ac, type: 2}
+      propertyPath: m_Center.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124854, guid: b673532f038cb43a49723f1797c921ac, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420688, guid: b673532f038cb43a49723f1797c921ac, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .736999989
+      objectReference: {fileID: 0}
+    - target: {fileID: 420688, guid: b673532f038cb43a49723f1797c921ac, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.179000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b673532f038cb43a49723f1797c921ac, type: 2}
@@ -3766,6 +3786,7 @@ GameObject:
   - 4: {fileID: 1393407967}
   - 61: {fileID: 1393407968}
   - 58: {fileID: 1393407969}
+  - 58: {fileID: 1393407970}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -3792,11 +3813,11 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 941348238}
   m_GameObject: {fileID: 1393407966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .400000006, y: .699999988}
-  m_Center: {x: 0, y: -.129999995}
+  m_Size: {x: .400000006, y: .5}
+  m_Center: {x: 0, y: -0}
 --- !u!58 &1393407969
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3809,6 +3830,17 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: .219999999}
+--- !u!58 &1393407970
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393407966}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .200000003
+  m_Center: {x: 0, y: -.300000012}
 --- !u!1 &1413459288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,7 +3863,7 @@ Transform:
   m_PrefabInternal: {fileID: 941348238}
   m_GameObject: {fileID: 1413459288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .439999998, y: -.160000086, z: 0}
+  m_LocalPosition: {x: .736999989, y: -.179000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 652616788}
