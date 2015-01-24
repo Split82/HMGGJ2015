@@ -39,6 +39,7 @@ public class EnemyGun : MonoBehaviour {
 			}
 
 			EnemyBullet bullet = _bulletPrefab.Spawn();
+			SoundManager.Instance.PlayShot();
 			bullet.Fire(_firePointTransform.position, shootDirection + (Vector3)Random.insideUnitCircle * _randomness, _bulletSpeed);	
 			yield return new WaitForSeconds(1 / _shotsPerSecond);
 		}

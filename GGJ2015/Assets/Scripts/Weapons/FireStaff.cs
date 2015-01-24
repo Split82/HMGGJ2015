@@ -57,6 +57,7 @@ public class FireStaff : MonoBehaviour {
 		Vector3 normalizedDirection = direction.normalized;
 		
 		Fireball bullet = _fireballPrefab.Spawn(pos);
+		SoundManager.Instance.PlayShot();
 		bullet.Fire(pos, normalizedDirection + (Vector3)Random.insideUnitCircle * _randomness, _bulletSpeed);	
 		
 		_timeSinceLastShot = 0.0f;

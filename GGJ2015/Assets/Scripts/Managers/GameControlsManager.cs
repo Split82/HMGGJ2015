@@ -32,4 +32,16 @@ public class GameControlsManager : Singleton<GameControlsManager> {
 			return Input.GetKey(KeyCode.X);
 		}
 	}
+
+	public bool LeftButtonPressed {
+		get {
+			return Input.GetKeyDown(KeyCode.LeftArrow);
+		}
+	}
+	
+	public bool RightButtonPressed {
+		get {
+			return Input.GetKeyDown(KeyCode.RightArrow);
+		}
+	}
 }

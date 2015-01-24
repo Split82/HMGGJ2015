@@ -9,7 +9,7 @@ public class BasicEnemyController : MonoBehaviour {
 	public BasicMovementCheck _basicMovementCheck;	
 	public EnemySleepCheck _enemySleepCheck;
 	public float _maxHealth;
-	public HitDetector _fireballHitDetector;
+	public HitDetector _damageReceiveHitDetector;
 
 	private float _health;
 
@@ -23,9 +23,9 @@ public class BasicEnemyController : MonoBehaviour {
 		Check.Null(_basicMovement);
 		Check.Null(_basicMovementCheck);
 		Check.Null(_enemySleepCheck);
-		Check.Null(_fireballHitDetector);
+		Check.Null(_damageReceiveHitDetector);
 
-		_fireballHitDetector.TriggerDidEnterEvent += FireballTriggerDidEnter;
+		_damageReceiveHitDetector.TriggerDidEnterEvent += DamageReceiveTriggerDidEnter;
 
 		_basicMovementCheck.CanNotMoveInTheSameDirectionEvent += () => {
 			_basicMovement.Direction = DirectionClass.Opposite(_basicMovement.Direction);
@@ -54,9 +54,9 @@ public class BasicEnemyController : MonoBehaviour {
 		}
 	}
 
-	void FireballTriggerDidEnter(GameObject triggerDeObject, GameObject triggeredObject) {
+	void DamageReceiveTriggerDidEnter(Collider2D otherCollider) {
 
-		Fireball fireball = triggeredObject.GetComponent<Fireball>();
+		Fireball fireball = otherCollider.gameObject.GetComponent<Fireball>();
 		ApplyDamage (fireball._damage);
 	}
 }
