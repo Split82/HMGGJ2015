@@ -32,12 +32,12 @@ public class EnemyManager : Singleton<EnemyManager> {
 
 		GameObject spawPool = null;
 		switch (enemyPrefab.tag) {
-			case "bird" : {
+			case "BirdEnemy" : {
 				spawPool = _birdEmenyPrefab;
 				break;
 			}
-			default:
-			case "basic" : {
+			//default:
+			case "BasicEnemy" : {
 				spawPool = _basicEmenyPrefab;
 				break;
 			}
