@@ -35,6 +35,9 @@ public class BasicMovementCheck : MonoBehaviour {
 	private DirectionClass.DirectionEnum _direction = DirectionClass.DirectionEnum.Right;
 
 	void Start() {
+		Check.Null(_fallGroundedCheck);
+		Check.Null(_wallGroundedCheck);
+
 		StartCoroutine(MovementCheck());
 	}
 

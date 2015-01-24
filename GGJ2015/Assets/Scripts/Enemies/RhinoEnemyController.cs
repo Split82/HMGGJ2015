@@ -1,39 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(Rigidbody2D))]
+public class RhinoEnemyController : MonoBehaviour {
 
-public class BasicEnemyController : MonoBehaviour {
-	
 	public BasicMovement _basicMovement;
 	public BasicMovementCheck _basicMovementCheck;	
 	public EnemySleepCheck _enemySleepCheck;
-	public float _maxHealth;
-	public HitDetector _fireballHitDetector;
-
-	private float _health;
-
-	void Awake() {
-
-		_health = _maxHealth;
-	}
+	public EnemySeeHorizontalPlayerCheck _enemySeePlayerCheck;
 
 	void Start() {
-		
+
+		Check.Null(_enemySeePlayerCheck);		
 		Check.Null(_basicMovement);
 		Check.Null(_basicMovementCheck);
 		Check.Null(_enemySleepCheck);
-		Check.Null(_fireballHitDetector);
-
-		_fireballHitDetector.TriggerDidEnterEvent += FireballTriggerDidEnter;
-
+		
 		_basicMovementCheck.CanNotMoveInTheSameDirectionEvent += () => {
 			_basicMovement.Direction = DirectionClass.Opposite(_basicMovement.Direction);
 			_basicMovementCheck.Direction = _basicMovement.Direction;
 		};
-
+		
 		_enemySleepCheck.CanSleepValueHasChangedEvent += () => {
-
+			
 			if (_enemySleepCheck.CanSleep) {
 				_basicMovement.Stop();
 				_basicMovement.enabled = false;
@@ -44,19 +32,16 @@ public class BasicEnemyController : MonoBehaviour {
 				_basicMovementCheck.enabled = true;
 			}
 		};
+		
+		_enemySeePlayerCheck.IsPlayerVisibleHorizontalValueHasChangedEvent += MovementToPlayer;
+
+		_enemySeePlayerCheck.SimpleDirectionToPlayerValueHasChangedEvent += MovementToPlayer;
 	}
 
-	void ApplyDamage(float damageAmount) {
-
-		_health -= damageAmount;
-		if (_health <= 0) {
-			gameObject.Recycle();
+	void MovementToPlayer() {
+		if (_enemySeePlayerCheck.IsPlayerVisibleHorizontal) {
+			_basicMovement.Direction = _enemySeePlayerCheck.SimpleDirectionToPlayer;
+			_basicMovementCheck.Direction = _basicMovement.Direction;
 		}
-	}
-
-	void FireballTriggerDidEnter(GameObject triggerDeObject, GameObject triggeredObject) {
-
-		Fireball fireball = triggeredObject.GetComponent<Fireball>();
-		ApplyDamage (fireball._damage);
 	}
 }

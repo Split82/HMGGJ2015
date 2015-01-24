@@ -13,7 +13,7 @@ GameObject:
   - 95: {fileID: 9526068}
   - 212: {fileID: 21226068}
   - 114: {fileID: 11468266}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5763135, y: 1.74266601, z: 0}
+  m_LocalPosition: {x: -7.51462841, y: 3.79484653, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430834}
@@ -85,7 +85,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: .300000012
+  m_Radius: .100000001
   m_Center: {x: 0, y: 0}
 --- !u!95 &9526068
 Animator:
