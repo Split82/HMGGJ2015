@@ -5,14 +5,12 @@ public class EnemyGun : MonoBehaviour {
 	
 	public EnemyBullet _bulletPrefab;
 	public Transform _firePointTransform;
-	public PlayerFaceDirection _playerFaceDirection;
+	public FaceDirection _enemyFaceDirection;
 	public float _shotsPerSecond = 5.0f;
 	public float _bulletSpeed = 100.0f;
 	public float _randomness = 0.2f;
 	
-	private float _timeSinceLastShot;
 	private Transform _transform;
-	private Vector3 _shootDirection;
 
 	void Awake() {
 		
@@ -20,44 +18,29 @@ public class EnemyGun : MonoBehaviour {
 		_bulletPrefab.CreatePool(30);
 
 		_transform = transform;
+	}
 
-		_playerFaceDirection.DirectionDidChangeEvent += () => {
+	void Start() {
 
-			if (_playerFaceDirection.Direction == PlayerFaceDirection.DirectionEnum.Left) {
+		StartCoroutine(Fire());
+	}
+
+	IEnumerator Fire() {
+
+		while (true) {
+			Vector3 shootDirection;
+			if (_enemyFaceDirection.Direction == FaceDirection.DirectionEnum.Left) {
 				_transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-				_shootDirection = new Vector3(-1.0f, 0.0f, 0.0f);
+				shootDirection = new Vector3(-1.0f, 0.0f, 0.0f);
 			}
 			else {
 				_transform.localScale = Vector3.one;
-				_shootDirection = new Vector3(1.0f, 0.0f, 0.0f);
+				shootDirection = new Vector3(1.0f, 0.0f, 0.0f);
 			}
-		};
 
-		_shootDirection = new Vector3(1.0f, 0.0f, 0.0f);
-	}
-
-	void Update() {	
-
-		_timeSinceLastShot += Time.deltaTime;
-
-		if (true) {
-			Fire(_firePointTransform.position, _shootDirection);
+			EnemyBullet bullet = _bulletPrefab.Spawn();
+			bullet.Fire(_firePointTransform.position, shootDirection + (Vector3)Random.insideUnitCircle * _randomness, _bulletSpeed);	
+			yield return new WaitForSeconds(1 / _shotsPerSecond);
 		}
-	}
-	
-	// Returns true if bullet was fired
-	public bool Fire(Vector3 pos, Vector3 direction) {
-		
-		if (_timeSinceLastShot < 1.0f / _shotsPerSecond) {
-			return false;
-		}	
-		
-		Vector3 normalizedDirection = direction.normalized;
-		
-		EnemyBullet bullet = _bulletPrefab.Spawn(pos);
-		bullet.Fire(pos, normalizedDirection + (Vector3)Random.insideUnitCircle * _randomness, _bulletSpeed);	
-		
-		_timeSinceLastShot = 0.0f;
-		return true;
 	}
 }
