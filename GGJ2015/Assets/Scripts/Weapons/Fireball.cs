@@ -32,12 +32,12 @@ public class Fireball : MonoBehaviour {
 		}
 	}
 	
-	void OnCollisionEnter2D(Collision2D coll) {
-
+//	void OnCollisionEnter2D(Collision2D coll) {
+//		
 //		ContactPoint2D contact = coll.contacts[0];
 //		SpawnHitParticles(contact.point, contact.normal);
-		gameObject.Recycle();
-	}
+//		gameObject.Recycle();
+//	}
 	
 	public void Fire(Vector3 pos, Vector3 direction, float speed) {
 
@@ -64,5 +64,10 @@ public class Fireball : MonoBehaviour {
 //		PSEffectsManager.Instance._shotHitDebrisPS.transform.position = pos;
 //		PSEffectsManager.Instance._shotHitDebrisPS.transform.LookAt(pos + normal);
 //		PSEffectsManager.Instance._shotHitDebrisPS.Emit(5);
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+
+		gameObject.Recycle();
 	}
 }

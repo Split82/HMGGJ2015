@@ -6390,7 +6390,7 @@ Transform:
   m_Children:
   - {fileID: 1413459289}
   m_Father: {fileID: 2086091449}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &652616789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6786,7 +6786,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2086091449}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!212 &677910120
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9672,6 +9672,46 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8c2864bc5f3b5456ea8c8b3ca9bc3271, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &947481813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 183404, guid: b673532f038cb43a49723f1797c921ac, type: 2}
+  m_PrefabInternal: {fileID: 2044410373}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 947481814}
+  - 61: {fileID: 947481815}
+  m_Layer: 13
+  m_Name: RaycastTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &947481814
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 483404, guid: b673532f038cb43a49723f1797c921ac, type: 2}
+  m_PrefabInternal: {fileID: 2044410373}
+  m_GameObject: {fileID: 947481813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2086091449}
+  m_RootOrder: 0
+--- !u!61 &947481815
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6183404, guid: b673532f038cb43a49723f1797c921ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 2044410373}
+  m_GameObject: {fileID: 947481813}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &983610560
 GameObject:
   m_ObjectHideFlags: 0
@@ -12638,7 +12678,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2086091449}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!58 &1393407969
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19105,6 +19145,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.36999989, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 947481814}
   - {fileID: 1393407967}
   - {fileID: 677910119}
   - {fileID: 652616788}
