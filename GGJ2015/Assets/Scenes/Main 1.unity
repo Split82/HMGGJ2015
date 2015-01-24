@@ -10445,6 +10445,8 @@ GameObject:
   - 4: {fileID: 1040037932}
   - 114: {fileID: 1040037931}
   - 114: {fileID: 1040037933}
+  - 114: {fileID: 1040037935}
+  - 82: {fileID: 1040037934}
   m_Layer: 0
   m_Name: GlobalManagers
   m_TagString: Untagged
@@ -10488,6 +10490,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 2086091452}
   _levelBuilder: {fileID: 1146375606}
+--- !u!82 &1040037934
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1040037930}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &1040037935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1040037930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e80cb2960c334c8ebd816bad86cf75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 1040037934}
+  _soundHit: {fileID: 8300000, guid: 484d23f397bd947308a707d0874aa23b, type: 3}
+  _soundJump: {fileID: 8300000, guid: dfdbba5de53244bd08456cfa71d361b2, type: 3}
+  _soundPickup: {fileID: 8300000, guid: 3d072ba20ea724999b3ff6dbccb15b51, type: 3}
+  _soundSelect: {fileID: 8300000, guid: 2ceb17b84c6d04ef99c93d6b82863c7b, type: 3}
+  _soundShot:
+  - {fileID: 8300000, guid: 2f706fc2871e84b209d32c335e3bc7b7, type: 3}
+  - {fileID: 8300000, guid: 0298acae6db6741759af264c4ff48ec5, type: 3}
+  - {fileID: 8300000, guid: e8fb6b57348b34b638b3c01d0256aa5d, type: 3}
 --- !u!1 &1042375186
 GameObject:
   m_ObjectHideFlags: 0
@@ -19804,6 +19884,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocityXThreshold: 20
   _velocityYThreshold: 5
+  _ropeLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2086167552
 GameObject:
   m_ObjectHideFlags: 0
