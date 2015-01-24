@@ -245,8 +245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkInterval: .100000001
   _followSpeed: 50
-  _attackSpeed: 600
-  _waitDistance: 4
+  _attackSpeed: 500
+  _waitDistance: 2
   _waitInterval: .400000006
   _state: 0
 --- !u!114 &11437822
