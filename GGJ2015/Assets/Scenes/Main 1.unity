@@ -7958,6 +7958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f120709c4e849e39c3430850586306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _basicEmenyPrefab: {fileID: 122232, guid: 44061be32d7ae4a81907b694d3c06d7e, type: 2}
+  _birdEmenyPrefab: {fileID: 183348, guid: 3f90db024b6ad44c1b9a57340b95503c, type: 2}
   _maxEnemyCount: 10
 --- !u!1 &1047086471
 GameObject:

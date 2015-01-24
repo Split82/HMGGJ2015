@@ -34,7 +34,7 @@ public class EnemySpawnZone : MonoBehaviour {
 			EnemyGroupSpawnParams spawnParams = _enemyGroupsSpawnParams[groupIndex];
 			if (CanSpawnEnemies(spawnParams._enemyPrefabs.Length)) {
 				foreach (GameObject enemyPrefab in spawnParams._enemyPrefabs) {
-					GameObject enemy = (GameObject)Instantiate(enemyPrefab);
+					GameObject enemy = _enemyManager.CreateEnemyFromPrefab(enemyPrefab);
 					enemy.transform.position = new Vector3(Random.Range(spawnRect.xMin, spawnRect.xMax), Random.Range(spawnRect.yMin, spawnRect.yMax)) + transform.position;
 					EnemyLifetimeNotifier enemyLifetimeNotifier = enemy.GetComponent<EnemyLifetimeNotifier>();
 					enemyLifetimeNotifier.EnemyDidSpawnEvent += EnemyDidSpawn;

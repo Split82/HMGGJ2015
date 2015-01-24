@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class EnemyManager : Singleton<EnemyManager> {
 
+	public GameObject _basicEmenyPrefab;
+	public GameObject _birdEmenyPrefab;
+
 	public int EnemyCount {
 		get {
 			return _enemies.Count;
@@ -17,12 +20,30 @@ public class EnemyManager : Singleton<EnemyManager> {
 	void Awake() {
 
 		_enemies = new List<GameObject> ();
+		_basicEmenyPrefab.CreatePool(10);
+		_birdEmenyPrefab.CreatePool(10);
 	}
 
 	void Start () {
 	
 	}
 
+	public GameObject CreateEnemyFromPrefab(GameObject enemyPrefab) {
+
+		GameObject spawPool = null;
+		switch (enemyPrefab.tag) {
+			case "bird" : {
+				spawPool = _birdEmenyPrefab;
+				break;
+			}
+			default:
+			case "basic" : {
+				spawPool = _basicEmenyPrefab;
+				break;
+			}
+		}
+		return spawPool.Spawn();
+	}
 
 	public void AddEnemy(GameObject enemy) {
 
