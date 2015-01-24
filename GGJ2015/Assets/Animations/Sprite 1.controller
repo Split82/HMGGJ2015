@@ -89,12 +89,12 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BasicEnemyWalking
-  m_Speed: 2
+  m_Speed: 1.20000005
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: df3c85eb5f52e40a687dd69b50830013, type: 2}
   m_ParentStateMachine: {fileID: 110772218}
-  m_Position: {x: -60, y: 96, z: 0}
+  m_Position: {x: 24, y: 108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -109,7 +109,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 90c90258eeab94168af96c9f51218943, type: 2}
   m_ParentStateMachine: {fileID: 110717328}
-  m_Position: {x: 161, y: 112, z: 0}
+  m_Position: {x: -192, y: 108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -124,7 +124,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 774f39daebacf4079acc9cccf71db187, type: 2}
   m_ParentStateMachine: {fileID: 110717328}
-  m_Position: {x: 320, y: 31, z: 0}
+  m_Position: {x: 288, y: 108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -143,13 +143,13 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110289900}
-      second:
-      - {fileID: 110139232}
-    data:
       first: {fileID: 110285658}
       second:
       - {fileID: 110134358}
+    data:
+      first: {fileID: 110289900}
+      second:
+      - {fileID: 110139232}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
