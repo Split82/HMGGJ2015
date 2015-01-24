@@ -10,7 +10,10 @@ public class PlayerController : MonoBehaviour {
 	public PlayerMovement _playerMovement;
 	public PlayerRopeMovement _playerRopeMovement;
 	public FireStaff _fireStaff;
+	public LayerMask _enemyDealDamageLayerMask;
+	public LayerMask _enemyBulletLayerMask;
 	public GroundedCheck _groundedCheck;
+
 
 	public enum StateEnum {
 		Undefined,
@@ -99,12 +102,13 @@ public class PlayerController : MonoBehaviour {
 		_receiveDamageHitDetector.TriggerDidEnterEvent += ReceiveDamageTriggerDidEnter;
 	}
 
-	void ReceiveDamageTriggerDidEnter(GameObject triggerObject, GameObject triggeredObject) {
+	void ReceiveDamageTriggerDidEnter(Collider2D otherCollider) {
 
-		switch (triggerObject.tag) {
-			case "BasicEmeny" : {
-				break;
-			}
+		if ((1 << otherCollider.gameObject.layer & _enemyDealDamageLayerMask) != 0) {
+			Vector3 dir = _rigidbody2D.transform.position - otherCollider.transform.position;
+			_rigidbody2D.velocity += new Vector2(dir.x > 0 ? 1 : -1 , 5);
+		}
+		else if ((1 << otherCollider.gameObject.layer & _enemyBulletLayerMask) != 0) {
 		}
 	}
 }

@@ -54,9 +54,9 @@ public class BasicEnemyController : MonoBehaviour {
 		}
 	}
 
-	void FireballTriggerDidEnter(GameObject triggerDeObject, GameObject triggeredObject) {
+	void FireballTriggerDidEnter(Collider2D otherCollider) {
 
-		Fireball fireball = triggeredObject.GetComponent<Fireball>();
+		Fireball fireball = otherCollider.gameObject.GetComponent<Fireball>();
 		ApplyDamage (fireball._damage);
 	}
 }
