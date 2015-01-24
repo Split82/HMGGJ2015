@@ -12,6 +12,12 @@ public class PlayerRopeMovement : MonoBehaviour {
 	public float _exitTime = 0.1f;
 
 	public event Action<bool> PlayerDidExitRopeWithJumpEvent;
+
+	public bool IsClimbing {
+		get {
+			return Mathf.Abs(_rigidBody2D.velocity.y) > 0.1f;
+		}
+	}
 		
 	private Rigidbody2D _rigidBody2D;
 	private GameControlsManager _gameControlsManager;

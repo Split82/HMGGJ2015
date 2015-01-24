@@ -295,6 +295,8 @@ MonoBehaviour:
   _playerFaceDirection: {fileID: 11420688}
   _groundedCheck: {fileID: 11499324}
   _playerMovement: {fileID: 11499326}
+  _playerController: {fileID: 11420692}
+  _playerRopeMovement: {fileID: 11446516}
 --- !u!114 &11499322
 MonoBehaviour:
   m_ObjectHideFlags: 1
