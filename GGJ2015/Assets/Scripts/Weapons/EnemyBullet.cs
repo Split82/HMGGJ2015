@@ -32,12 +32,12 @@ public class EnemyBullet : MonoBehaviour {
 		}
 	}
 	
-//	void OnCollisionEnter2D(Collision2D coll) {
-//		
+	void OnCollisionEnter2D(Collision2D coll) {
+
 //		ContactPoint2D contact = coll.contacts[0];
 //		SpawnHitParticles(contact.point, contact.normal);
-//		gameObject.Recycle();
-//	}
+		gameObject.Recycle();
+	}
 	
 	public void Fire(Vector3 pos, Vector3 direction, float speed) {
 
