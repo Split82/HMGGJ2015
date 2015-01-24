@@ -15,7 +15,7 @@ public class Room
 		switch (type) {
 			case 'S': tiles = LoadRes("start"    , 1); break;
 			case 'E': tiles = LoadRes("exit"     , 1); break;
-			case '.': tiles = LoadRes("closed"   , 4); break;
+			case '.': tiles = LoadRes("closed"   , 1); break;
 			case '-': tiles = LoadRes("straight" , 4); break;
 			case 'v': tiles = LoadRes("drop"     , 4); break;
 			case '^': tiles = LoadRes("climb"    , 4); break;
@@ -24,12 +24,6 @@ public class Room
 }
 
 public class LevelGenerator : MonoBehaviour {
-
-
-	void Start() {
-
-		GenerateLevel ();
-	}
 
 	public char[,] GenerateLevel() {
 
