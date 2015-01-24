@@ -8,16 +8,7 @@ public class Room
 	public Room(char type) {
 		switch (type) {
 			case 'S': // start
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "..........",
-									   "....S.....",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
+				tiles = (Resources.Load("room_start_01") as TextAsset).text.Split('\n');
 				break;
 			case 'E': // exit
 				tiles = new string[] { "XXXXXXXXXX",
@@ -84,6 +75,12 @@ public class Room
 }
 
 public class LevelGenerator : MonoBehaviour {
+
+
+	void Start() {
+
+		GenerateLevel ();
+	}
 
 	public char[,] GenerateLevel() {
 
