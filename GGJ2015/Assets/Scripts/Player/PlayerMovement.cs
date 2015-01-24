@@ -13,8 +13,15 @@ public class PlayerMovement : MonoBehaviour {
 	public Vector2 _maxVelocity;
 	public GroundedCheck _groundedCheck;
 
+	public bool IsRunning {
+		get {
+			return _isRunning;
+		}
+	}
+
 	private Rigidbody2D _rigidBody2D;
 	private GameControlsManager _gameControlsManager;
+	private bool _isRunning;
 
 	void Start() {
 	
@@ -41,12 +48,15 @@ public class PlayerMovement : MonoBehaviour {
 
 		// Add velocity
 		if (_gameControlsManager.LeftButtonIsActive) {
+			_isRunning = true;
 			velocity -= new Vector2 (1.0f, 0.0f) * force * Time.fixedDeltaTime;
 		}
 		else if (_gameControlsManager.RightButtonIsActive) {
+			_isRunning = true;
 			velocity += new Vector2 (1.0f, 0.0f) * force * Time.fixedDeltaTime;
 		}
 		else {
+			_isRunning = false;
 			velocity.x *= friction;
 		}
 
