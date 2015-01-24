@@ -5,61 +5,31 @@ public class Room
 {
 	public string[] tiles;
 
+	private string[] LoadRes(string type, int max) {
+		string index = Random.Range(1, max + 1).ToString("00");
+		string name = "room_" + type + "_" + index;
+		return (Resources.Load(name) as TextAsset).text.Split('\n');
+	}
+
 	public Room(char type) {
 		switch (type) {
-			case '.':
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
-				break;
-			case '-':
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "..........",
-									   "..........",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
-				break;
-			case 'v':
-				tiles = new string[] { "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "..........",
-									   "..........",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX" };
-				break;
-			case '^':
-				tiles = new string[] { "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "XXXX..XXXX",
-									   "..........",
-									   "..........",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX",
-									   "XXXXXXXXXX" };
-				break;
+			case 'S': tiles = LoadRes("start"    , 1); break;
+			case 'E': tiles = LoadRes("exit"     , 1); break;
+			case '.': tiles = LoadRes("closed"   , 4); break;
+			case '-': tiles = LoadRes("straight" , 4); break;
+			case 'v': tiles = LoadRes("drop"     , 4); break;
+			case '^': tiles = LoadRes("climb"    , 4); break;
 		}
 	}
 }
 
 public class LevelGenerator : MonoBehaviour {
+
+
+	void Start() {
+
+		GenerateLevel ();
+	}
 
 	public char[,] GenerateLevel() {
 
@@ -74,13 +44,15 @@ public class LevelGenerator : MonoBehaviour {
 
 		rooms = new char[roomsx, roomsy];
 		tiles = new char[roomsx * tilesx, roomsy * tilesy];
-	
+
 		// generate rooms
 		for (int j = 0; j < roomsy; j++) {
 			for (int i = 0; i < roomsx; i++) {
 				rooms[i, j] = '-';
 			}
 		}
+		rooms[Random.Range(0, roomsx), 0] = 'S';
+		rooms[Random.Range(0, roomsx), roomsy - 1] = 'E';
 		for (int j = 0; j < roomsy - 1; j++) {
 			for (;;) {
 				int i = Random.Range(0, roomsx);

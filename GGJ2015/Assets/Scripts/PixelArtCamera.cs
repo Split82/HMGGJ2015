@@ -13,6 +13,6 @@ public class PixelArtCamera : MonoBehaviour {
 	void Update () {
 
 		Camera selfCamera = gameObject.GetComponent<Camera> ();
-		selfCamera.fieldOfView = Mathf.Atan (((float)Screen.height / (2 * _pixelsPerUnit * _pixelMultiplier)) / -gameObject.transform.position.z) * Mathf.Rad2Deg;
+		selfCamera.fieldOfView = Mathf.Atan (((float)Screen.height / (_pixelsPerUnit * _pixelMultiplier)) / -gameObject.transform.position.z) * Mathf.Rad2Deg;
 	}
 }
