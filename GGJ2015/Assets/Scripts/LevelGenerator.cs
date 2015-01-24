@@ -106,7 +106,7 @@ public class LevelGenerator : MonoBehaviour {
 			}
 		}
 		rooms[Random.Range(0, roomsx), 0] = 'S';
-		rooms[Random.Range(0, roomsx), rooms - 1] = 'E';
+		rooms[Random.Range(0, roomsx), roomsy - 1] = 'E';
 		for (int j = 0; j < roomsy - 1; j++) {
 			for (;;) {
 				int i = Random.Range(0, roomsx);
