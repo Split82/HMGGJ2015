@@ -29,10 +29,10 @@ public class LevelBuilder : MonoBehaviour {
 				if (c == 'X') {
 					GameObject go = (GameObject)Instantiate(_tileGround0Prefab);
 					go.transform.parent = _transform;
-					go.transform.position = new Vector3(i, j, 0.0f);
+					go.transform.position = new Vector3(i, -j, 0.0f);
 				}
 				else if (c == 'S') {
-					_startPos = new Vector2(i, j);
+					_startPos = new Vector2(i, -j);
 				}
 				
 			}
