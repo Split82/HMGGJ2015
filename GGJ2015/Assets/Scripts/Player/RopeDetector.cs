@@ -7,6 +7,7 @@ public class RopeDetector : MonoBehaviour {
 
 	public float _velocityXThreshold = 0.1f;
 	public float _velocityYThreshold = -0.1f;
+	public LayerMask _ropeLayerMask;
 
 	public event Action PlayerDidEnterRopeEvent;
 	public event Action PlayerDidExitRopeEvent;
@@ -28,6 +29,8 @@ public class RopeDetector : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
+		if ((_ropeLayerMask.value & 1<<other.gameObject.layer) == 0)
+			return;
 
 		if (_playerIsInsideTheRope) {
 			return;
@@ -44,6 +47,8 @@ public class RopeDetector : MonoBehaviour {
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
+		if ((_ropeLayerMask.value & 1<<other.gameObject.layer) == 0)
+			return;
 
 		StopAllCoroutines();
 
