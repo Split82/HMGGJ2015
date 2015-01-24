@@ -7,7 +7,31 @@ public class Room
 
 	public Room(char type) {
 		switch (type) {
-			case '.':
+			case 'S': // start
+				tiles = new string[] { "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "..........",
+									   "....S.....",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX" };
+				break;
+			case 'E': // exit
+				tiles = new string[] { "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "..........",
+									   "....E.....",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX",
+									   "XXXXXXXXXX" };
+				break;
+			case '.': // closed
 				tiles = new string[] { "XXXXXXXXXX",
 									   "XXXXXXXXXX",
 									   "XXXXXXXXXX",
@@ -19,7 +43,7 @@ public class Room
 									   "XXXXXXXXXX",
 									   "XXXXXXXXXX" };
 				break;
-			case '-':
+			case '-': // straight
 				tiles = new string[] { "XXXXXXXXXX",
 									   "XXXXXXXXXX",
 									   "XXXXXXXXXX",
@@ -31,7 +55,7 @@ public class Room
 									   "XXXXXXXXXX",
 									   "XXXXXXXXXX" };
 				break;
-			case 'v':
+			case 'v': // drop
 				tiles = new string[] { "XXXXXXXXXX",
 									   "XXXXXXXXXX",
 									   "XXXXXXXXXX",
@@ -43,7 +67,7 @@ public class Room
 									   "XXXX..XXXX",
 									   "XXXX..XXXX" };
 				break;
-			case '^':
+			case '^': // climb
 				tiles = new string[] { "XXXX..XXXX",
 									   "XXXX..XXXX",
 									   "XXXX..XXXX",
@@ -74,13 +98,15 @@ public class LevelGenerator : MonoBehaviour {
 
 		rooms = new char[roomsx, roomsy];
 		tiles = new char[roomsx * tilesx, roomsy * tilesy];
-	
+
 		// generate rooms
 		for (int j = 0; j < roomsy; j++) {
 			for (int i = 0; i < roomsx; i++) {
 				rooms[i, j] = '-';
 			}
 		}
+		rooms[Random.Range(0, roomsx), 0] = 'S';
+		rooms[Random.Range(0, roomsx), rooms - 1] = 'E';
 		for (int j = 0; j < roomsy - 1; j++) {
 			for (;;) {
 				int i = Random.Range(0, roomsx);
