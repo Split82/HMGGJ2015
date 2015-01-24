@@ -13,7 +13,5 @@ public class GameplayManager : Singleton<GameplayManager> {
 	}
 
 	void Start() {
-
-		_playerController._playerTransform.position = _levelBuilder.StartPos;
 	}
 }

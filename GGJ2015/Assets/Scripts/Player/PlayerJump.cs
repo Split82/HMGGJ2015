@@ -35,7 +35,12 @@ public class PlayerJump : MonoBehaviour {
 		_groundCheck = GetComponent<GroundedCheck>();
 		_rigidbody2D = rigidbody2D;
 	}
-	
+
+	void OnEnable() {
+		_numberOfJumpsSinceGrounded = 0;
+		_canGroundTimer = 0.0f;
+	}
+
 	void FixedUpdate() {
 
 		// Ground Timer
@@ -86,5 +91,16 @@ public class PlayerJump : MonoBehaviour {
 			_jumpEnergy = 0.0f;
 			_didReleaseJumpButton = true;
 		}
+	}
+
+	public void ForcedJump() {
+
+		if (PlayerDidJumpEvent != null) {
+			PlayerDidJumpEvent(0);
+		}
+
+		Vector2 velocity = _rigidbody2D.velocity;
+		velocity.y = _jumpVelocity;
+		_rigidbody2D.velocity = velocity;
 	}
 }

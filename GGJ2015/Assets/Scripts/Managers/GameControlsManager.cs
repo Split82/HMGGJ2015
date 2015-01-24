@@ -9,6 +9,12 @@ public class GameControlsManager : Singleton<GameControlsManager> {
 		}
 	}
 
+	public bool DownButtonIsActive {
+		get {
+			return Input.GetKey(KeyCode.DownArrow);
+		}
+	}
+
 	public bool LeftButtonIsActive {
 		get {
 			return Input.GetKey(KeyCode.LeftArrow);

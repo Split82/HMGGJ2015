@@ -41,6 +41,7 @@ GameObject:
   - 4: {fileID: 424854}
   - 61: {fileID: 6124854}
   - 58: {fileID: 5824854}
+  - 58: {fileID: 5836356}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -75,11 +76,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 499324}
   - 50: {fileID: 5099322}
+  - 114: {fileID: 11420692}
   - 114: {fileID: 11499326}
   - 114: {fileID: 11499322}
+  - 114: {fileID: 11446516}
   - 114: {fileID: 11499324}
-  - 114: {fileID: 11420692}
   - 114: {fileID: 11420688}
+  - 114: {fileID: 11436356}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -94,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .439999998, y: -.160000086, z: 0}
+  m_LocalPosition: {x: .736999989, y: -.179000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420690}
@@ -177,8 +180,8 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: .219999999}
---- !u!61 &6124854
-BoxCollider2D:
+--- !u!58 &5836356
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -186,8 +189,19 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .400000006, y: .699999988}
-  m_Center: {x: 0, y: -.129999995}
+  m_Radius: .200000003
+  m_Center: {x: 0, y: -.289999992}
+--- !u!61 &6124854
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124854}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .400000006, y: .5}
+  m_Center: {x: 0, y: -0}
 --- !u!95 &9524854
 Animator:
   serializedVersion: 3
@@ -228,8 +242,8 @@ MonoBehaviour:
   _fireballPrefab: {fileID: 11468266, guid: d6686362b7f62430bb2f81030eb2d66a, type: 2}
   _firePointTransform: {fileID: 420688}
   _playerFaceDirection: {fileID: 11420688}
-  _shotsPerSecond: 15
-  _bulletSpeed: 30
+  _shotsPerSecond: 10
+  _bulletSpeed: 15
   _randomness: .100000001
 --- !u!114 &11420692
 MonoBehaviour:
@@ -244,6 +258,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 5099322}
   _playerTransform: {fileID: 499324}
+  _ropeDetector: {fileID: 11436356}
+  _playerJump: {fileID: 11499322}
+  _playerMovement: {fileID: 11499326}
+  _playerRopeMovement: {fileID: 11446516}
+  _fireStaff: {fileID: 11420690}
+--- !u!114 &11436356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705261e6372b547b595877eebda4683f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocityXThreshold: .100000001
+  _velocityYThreshold: -.100000001
+--- !u!114 &11446516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fceb5989db5a4ab08b890e2adafecb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _force: 0
+  _friction: 0
+  _maxVelocity: {x: 0, y: 0}
 --- !u!114 &11497442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6811ef9307b54025a9f606d17798221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startJumpEnergy: 1000
+  _startJumpEnergy: 900
   _jumpVelocity: 0
   _jumpEnergyDepletionMul: .5
 --- !u!114 &11499324
@@ -288,7 +334,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _offset: {x: 0, y: -.550000012}
-  _size: {x: .449999988, y: .100000001}
+  _size: {x: .330000013, y: .100000001}
 --- !u!114 &11499326
 MonoBehaviour:
   m_ObjectHideFlags: 1
