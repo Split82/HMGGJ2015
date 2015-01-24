@@ -25,12 +25,6 @@ public class Room
 
 public class LevelGenerator : MonoBehaviour {
 
-
-	void Start() {
-
-		GenerateLevel ();
-	}
-
 	public char[,] GenerateLevel() {
 
 		const int roomsx = 12;
