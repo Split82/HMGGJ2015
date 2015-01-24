@@ -6,7 +6,7 @@ public class RhinoEnemyController : MonoBehaviour {
 	public BasicMovement _basicMovement;
 	public BasicMovementCheck _basicMovementCheck;	
 	public EnemySleepCheck _enemySleepCheck;
-	public EnemySeePlayerCheck _enemySeePlayerCheck;
+	public EnemySeeHorizontalPlayerCheck _enemySeePlayerCheck;
 
 	void Start() {
 
@@ -32,7 +32,6 @@ public class RhinoEnemyController : MonoBehaviour {
 				_basicMovementCheck.enabled = true;
 			}
 		};
-	
 		
 		_enemySeePlayerCheck.IsPlayerVisibleHorizontalValueHasChangedEvent += MovementToPlayer;
 

@@ -3,27 +3,18 @@ using System.Collections;
 using System;
 
 [RequireComponent (typeof(Transform))]
-public class EnemySeePlayerCheck : MonoBehaviour {
+public class EnemySeeHorizontalPlayerCheck : MonoBehaviour {
 	
 	private Transform _transform;
 	private Vector2 _directionToPlayer;
 	private DirectionClass.DirectionEnum _simpleDirectionToPlayer;
-	private bool _isPlayerVisible;
 	private bool _isPlayerVisibleHorizontal;
 	
-	public LayerMask _groundLayerMask;
 	public LayerMask _playerLayerMask;
 
 	public event Action IsPlayerVisibleValueHasChangedEvent;
 	public event Action IsPlayerVisibleHorizontalValueHasChangedEvent;
-	public event Action DirectionToPlayerValueHasChangedEvent;
 	public event Action SimpleDirectionToPlayerValueHasChangedEvent;
-	
-	public bool IsPlayerVisible {
-		get {
-			return _isPlayerVisible;
-		}
-	}
 
 	public bool IsPlayerVisibleHorizontal {
 		get {
@@ -53,24 +44,11 @@ public class EnemySeePlayerCheck : MonoBehaviour {
 	IEnumerator PlayerVisibilityCheck() {
 		
 		while (true) {
-			bool oldIsPlayerVisible = _isPlayerVisible;
 			bool oldIsPlayerVisibleHorizontal = _isPlayerVisibleHorizontal;
 			DirectionClass.DirectionEnum oldSimpleDirectionToPlayer = _simpleDirectionToPlayer;
 			Vector2 oldDirectionToPlayer = _directionToPlayer;
 			
 			UpdateIsPlayerVisible();
-
-			if (_isPlayerVisible != oldIsPlayerVisible) {
-				if (IsPlayerVisibleValueHasChangedEvent != null) {
-					IsPlayerVisibleValueHasChangedEvent();
-				}
-			}
-
-			if (_directionToPlayer != oldDirectionToPlayer) {
-				if (DirectionToPlayerValueHasChangedEvent != null) {
-					DirectionToPlayerValueHasChangedEvent();
-				}
-			}
 
 			if (_isPlayerVisibleHorizontal != oldIsPlayerVisibleHorizontal) {
 				if (IsPlayerVisibleHorizontalValueHasChangedEvent != null) {
@@ -100,11 +78,9 @@ public class EnemySeePlayerCheck : MonoBehaviour {
 		UpdateDirectionToPlayer();
 
 		RaycastHit2D[] hits = new RaycastHit2D[1];
-		int count = Physics2D.RaycastNonAlloc(_transform.position, _directionToPlayer, hits, _directionToPlayer.magnitude, _groundLayerMask);
-		_isPlayerVisible = (count < 1);
-
+	
 		// right
-		count = Physics2D.RaycastNonAlloc(_transform.position, new Vector2(1f, 0f), hits, 1.5f * _directionToPlayer.magnitude, _playerLayerMask);
+		int count = Physics2D.RaycastNonAlloc(_transform.position, new Vector2(1f, 0f), hits, 1.5f * _directionToPlayer.magnitude, _playerLayerMask);
 		// left
 		count += Physics2D.RaycastNonAlloc(_transform.position, new Vector2(-1f, 0f), hits, 1.5f * _directionToPlayer.magnitude, _playerLayerMask);
 		_isPlayerVisibleHorizontal = (count > 0);
