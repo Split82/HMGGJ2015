@@ -33,7 +33,7 @@ public class EnemyBullet : MonoBehaviour {
 	}
 	
 //	void OnCollisionEnter2D(Collision2D coll) {
-//		
+//
 //		ContactPoint2D contact = coll.contacts[0];
 //		SpawnHitParticles(contact.point, contact.normal);
 //		gameObject.Recycle();
@@ -64,5 +64,10 @@ public class EnemyBullet : MonoBehaviour {
 //		PSEffectsManager.Instance._shotHitDebrisPS.transform.position = pos;
 //		PSEffectsManager.Instance._shotHitDebrisPS.transform.LookAt(pos + normal);
 //		PSEffectsManager.Instance._shotHitDebrisPS.Emit(5);
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		
+		gameObject.Recycle();
 	}
 }
