@@ -7,6 +7,9 @@ public class BirdEnemyMovement : MonoBehaviour {
 	public float _maxVelocity;
 	public Transform _transform;
 	public LayerMask _groundLayerMask;
+	public bool _isGhost;
+	public float _friction = 0.8f;
+	public float _atackDistance = 2f;
 
 	private Rigidbody2D _rigidBody2D;
 	private bool _isPlayerVisible = false;
@@ -25,8 +28,10 @@ public class BirdEnemyMovement : MonoBehaviour {
 		Vector2 velocity = _rigidBody2D.velocity;
 		if (_isPlayerVisible) {
 			Vector2 direction = _directionToPlayer.normalized;
-			velocity += direction * _force * Time.fixedDeltaTime;
+			float distance = Vector2.Distance(transform.position, GameplayManager.Instance._playerController._playerTransform.position);
+			velocity += direction * _force * Mathf.Clamp((_atackDistance / Mathf.Max(distance, 0.01f)), 1f, 5f) * Time.fixedDeltaTime;
 		}
+		velocity *= _friction;
 
 		velocity = Vector2.ClampMagnitude(velocity, _maxVelocity);
 		_rigidBody2D.velocity = velocity;
@@ -38,6 +43,8 @@ public class BirdEnemyMovement : MonoBehaviour {
 	}
 	
 	bool IsPlayerVisible() {
+		if (_isGhost)
+			return true;
 
 		RaycastHit2D[] hits = new RaycastHit2D[1];
 		int count = Physics2D.RaycastNonAlloc(_transform.position, DirectionToPlayer(), hits, DirectionToPlayer().magnitude, _groundLayerMask);
