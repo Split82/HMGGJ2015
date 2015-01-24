@@ -9,14 +9,14 @@ public class FixedFollow: MonoBehaviour {
 	private Transform followTransform;
 	private Transform thisTransform;
 	
-	void Start () {
+	void Start() {
 
 		thisTransform = this.transform;
 		followTransform = followObject.transform;
 		thisTransform.position = followTransform.position + offset;	
 	}
 	
-	void Update () {
+	void LateUpdate() {
 
 		thisTransform.position = followTransform.position + offset;	
 	}

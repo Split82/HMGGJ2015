@@ -39,10 +39,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 424854}
-  - 61: {fileID: 6124854}
   - 58: {fileID: 5824854}
   - 58: {fileID: 5836356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,17 +190,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: -.289999992}
---- !u!61 &6124854
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 124854}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .400000006, y: .5}
-  m_Center: {x: 0, y: -0}
 --- !u!95 &9524854
 Animator:
   serializedVersion: 3
@@ -263,6 +251,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 11499326}
   _playerRopeMovement: {fileID: 11446516}
   _fireStaff: {fileID: 11420690}
+  _groundedCheck: {fileID: 11499324}
 --- !u!114 &11436356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,8 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705261e6372b547b595877eebda4683f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocityXThreshold: .100000001
-  _velocityYThreshold: -.100000001
+  _velocityXThreshold: 20
+  _velocityYThreshold: 5
 --- !u!114 &11446516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,9 +276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fceb5989db5a4ab08b890e2adafecb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 0
-  _friction: 0
-  _maxVelocity: {x: 0, y: 0}
+  _force: 50
+  _friction: .5
+  _maxVelocity: 6
+  _exitTime: .0500000007
 --- !u!114 &11497442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -316,9 +306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6811ef9307b54025a9f606d17798221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startJumpEnergy: 900
-  _jumpVelocity: 0
-  _jumpEnergyDepletionMul: .5
+  _startJumpEnergy: 40
+  _jumpVelocity: 9
+  _jumpEnergyDepletionMul: .899999976
 --- !u!114 &11499324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,7 +360,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 3075450875
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5b61f5264e1184756a234e4b80306ff8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

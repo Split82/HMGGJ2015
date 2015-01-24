@@ -6,10 +6,6 @@ public class PixelArtCamera : MonoBehaviour {
 	public int _pixelMultiplier = 2;
 	public int _pixelsPerUnit = 48;
 
-	void Start () {
-	
-	}
-	
 	void Update () {
 
 		Camera selfCamera = gameObject.GetComponent<Camera> ();

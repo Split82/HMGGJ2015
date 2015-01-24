@@ -37,7 +37,23 @@ TagManager:
   User Layer 30: 
   User Layer 31: 
   m_SortingLayers:
+  - name: FarBackground
+    userID: 4
+    uniqueID: 3334357017
+    locked: 0
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: BackgroundTiles
+    userID: 2
+    uniqueID: 2665330549
+    locked: 0
+  - name: Player
+    userID: 1
+    uniqueID: 3075450875
+    locked: 0
+  - name: ForegroundTiles
+    userID: 3
+    uniqueID: 3657231767
     locked: 0
