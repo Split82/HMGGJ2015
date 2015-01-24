@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6811ef9307b54025a9f606d17798221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startJumpEnergy: 900
+  _startJumpEnergy: 1000
   _jumpVelocity: 0
   _jumpEnergyDepletionMul: .5
 --- !u!114 &11499324
@@ -232,7 +232,7 @@ MonoBehaviour:
   _airForce: 50
   _groundFriction: .800000012
   _airFriction: .920000017
-  _maxVelocity: {x: 6, y: 10}
+  _maxVelocity: {x: 6.5, y: 20}
   _groundedCheck: {fileID: 11499324}
 --- !u!212 &21299322
 SpriteRenderer:
