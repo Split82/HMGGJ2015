@@ -83,28 +83,13 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1102 &110205374
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: BasicEnemyLeft
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: 774f39daebacf4079acc9cccf71db187, type: 2}
-  m_ParentStateMachine: {fileID: 110772218}
-  m_Position: {x: -25, y: 161, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
 --- !u!1102 &110272218
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BasicEnemyWalking
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: df3c85eb5f52e40a687dd69b50830013, type: 2}
@@ -178,7 +163,6 @@ StateMachine:
   m_DefaultState: {fileID: 110272218}
   m_States:
   - {fileID: 110272218}
-  - {fileID: 110205374}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:

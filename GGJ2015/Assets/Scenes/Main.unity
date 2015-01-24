@@ -7234,7 +7234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2bd2f9c246a409184bd70baa218459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pixelMultiplier: 1
+  _pixelMultiplier: 2
   _pixelsPerUnit: 48
 --- !u!95 &834268931
 Animator:
