@@ -10,7 +10,8 @@ GameObject:
   - 4: {fileID: 404032}
   - 212: {fileID: 21204032}
   - 114: {fileID: 11404032}
-  m_Layer: 0
+  - 61: {fileID: 6102090}
+  m_Layer: 9
   m_Name: TileGround0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,11 +25,22 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.36878777, y: 1.83499968, z: 0}
+  m_LocalPosition: {x: 64.5637817, y: -29.0486374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6102090
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104032}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e595af9d00318406cb13a673eaa95316, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!114 &11404032
 MonoBehaviour:
   m_ObjectHideFlags: 1
