@@ -25,5 +25,9 @@ public class GameTraits : Singleton<GameTraits> {
 		TraitsManager.Instance.RegisterForTraitWasAddedEvent("NOGO", () => {
 			numberOfJumps = 1;
 		});
+
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("LAKK", () => {
+			swapControls = true;
+		});
 	}
 }

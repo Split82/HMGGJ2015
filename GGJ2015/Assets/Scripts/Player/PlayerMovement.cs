@@ -47,11 +47,11 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		// Add velocity
-		if (_gameControlsManager.LeftButtonIsActive) {
+		if ((_gameControlsManager.LeftButtonIsActive && !GameTraits.Instance.swapControls) || (_gameControlsManager.RightButtonIsActive && GameTraits.Instance.swapControls) ) {
 			_isRunning = true;
 			velocity -= new Vector2 (1.0f, 0.0f) * force * Time.fixedDeltaTime;
 		}
-		else if (_gameControlsManager.RightButtonIsActive) {
+		else if ((_gameControlsManager.RightButtonIsActive && !GameTraits.Instance.swapControls) || (_gameControlsManager.LeftButtonIsActive && GameTraits.Instance.swapControls) ) {
 			_isRunning = true;
 			velocity += new Vector2 (1.0f, 0.0f) * force * Time.fixedDeltaTime;
 		}

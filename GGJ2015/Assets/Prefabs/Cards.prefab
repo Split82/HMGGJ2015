@@ -65,7 +65,7 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 44d117bd5b0c448af967cc2559796b92, type: 3}
     text: You see further.
   negTraitProperties:
-  - id: BLUR
+  - id: BARM
     icon: {fileID: 21300000, guid: 0870aa04b9bb340d183d5403392d3c02, type: 3}
     text: Blurs the screen.
   - id: OPPO
@@ -80,15 +80,12 @@ MonoBehaviour:
   - id: NOGO
     icon: {fileID: 21300000, guid: 30867954b53424a37ab87c1d0f3da26b, type: 3}
     text: Loses doublejump.
-  - id: BARM
-    icon: {fileID: 21300000, guid: 0870aa04b9bb340d183d5403392d3c02, type: 3}
-    text: Blurs the screen.
+  - id: LAKK
+    icon: {fileID: 21300000, guid: d028f9ddc167e4491a6250704254ad5c, type: 3}
+    text: Swap controls.
   - id: AKUP
     icon: {fileID: 21300000, guid: f228530664ac94765aff2f3ab52966cf, type: 3}
-    text: Disorts the screen.
-  - id: BLUR
-    icon: {fileID: 21300000, guid: 0870aa04b9bb340d183d5403392d3c02, type: 3}
-    text: Blurs the screen.
+    text: Swap controls.
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

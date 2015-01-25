@@ -14,35 +14,35 @@ public class GlobalTraits : Singleton<GlobalTraits> {
 
 	void Start () {
 	
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("pira", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("PIRA", () => {
 			_shieldsOff = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("kohu", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("KOHU", () => {
 			_rearGun = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("qedi", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("QEDI", () => {
 			_wallsOff = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("azan", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("AZAN", () => {
 			_doubleBullets = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("kvep", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("KVEP", () => {
 			_lessEnemies = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("oko", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("OKO", () => {
 			_zoomOut = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("oko", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("NOHA", () => {
 			_slowEnemies = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("krox", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("KROX", () => {
 			_moreEnemies = true;
 		});
 

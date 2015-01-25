@@ -6,7 +6,7 @@ public class GameplayManager : Singleton<GameplayManager> {
 	public PlayerController _playerController;
 	public CardsHandManager _cardsHandManager;
 	public AltarManager _altarManager;
-	public float _cardPickTimeInterval = 30.0f;
+	public float _cardPickTimeInterval = 3.0f;
 
 	public float TimeTillNextCardPick {
 		get {
