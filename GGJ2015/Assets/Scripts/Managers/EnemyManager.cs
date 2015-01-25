@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class EnemyManager : Singleton<EnemyManager> {
 
 	public GameObject _basicEmenyPrefab;
-	public GameObject _birdEmenyPrefab;
+	public GameObject _rhinoEmenyPrefab;
 
 	public int EnemyCount {
 		get {
@@ -21,7 +21,7 @@ public class EnemyManager : Singleton<EnemyManager> {
 
 		_enemies = new List<GameObject> ();
 		_basicEmenyPrefab.CreatePool(10);
-		_birdEmenyPrefab.CreatePool(10);
+		_rhinoEmenyPrefab.CreatePool(10);
 	}
 
 	void Start () {
@@ -32,11 +32,11 @@ public class EnemyManager : Singleton<EnemyManager> {
 
 		GameObject spawPool = null;
 		switch (enemyPrefab.tag) {
-			case "BirdEnemy" : {
-				spawPool = _birdEmenyPrefab;
+			case "RhinoEnemy" : {
+				spawPool = _rhinoEmenyPrefab;
 				break;
 			}
-			//default:
+			default:
 			case "BasicEnemy" : {
 				spawPool = _basicEmenyPrefab;
 				break;
