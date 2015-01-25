@@ -234,7 +234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8296771, y: -11.2632675, z: 0}
+  m_LocalPosition: {x: -4.82800293, y: -11.2634315, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 492760}
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySleepCheck: {fileID: 11492772}
-  _maxHealth: 0
+  _maxHealth: 1
   _damageReceiveHitDetector: {fileID: 11477186}
   _enemyLifetimeNotifier: {fileID: 11490180}
   _enemyDeathJumpMovement: {fileID: 11422348}

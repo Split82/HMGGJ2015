@@ -5,6 +5,11 @@ public class BatEnemyController : EnemyController {
 
 	public BatEnemyMovement _batMovement;
 
+	void Start() {
+
+		CommmonStart();
+	}
+
 	public override void PrepareForSpawn() {
 
 		CommonPrepareForSpawn();

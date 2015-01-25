@@ -10,6 +10,8 @@ public class RhinoEnemyController : EnemyController {
 
 	void Start() {
 
+		CommmonStart();
+
 		Check.Null(_enemySeePlayerCheck);		
 		Check.Null(_basicMovement);
 		Check.Null(_basicMovementCheck);
