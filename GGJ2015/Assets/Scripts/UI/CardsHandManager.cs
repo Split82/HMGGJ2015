@@ -12,6 +12,8 @@ public class CardsHandManager : MonoBehaviour {
 	public Vector3 _pickingLayoutOffset = new Vector3(10.0f, -20.0f, 0.0f);
 	public float _cardWidth = 140.0f;
 
+	public event System.Action<CardsProperties.Card> CardWasChosenEvent;
+
 	public int NumberOfCardsInHand {
 		get {
 			return _cardViewControllers.Count;
@@ -36,6 +38,7 @@ public class CardsHandManager : MonoBehaviour {
 		go.transform.SetParent(transform);
 		go.transform.localScale = Vector3.one;
 		CardViewController cardViewController = go.GetComponent<CardViewController>();
+		cardViewController.CurrentCard = CardsProperties.Instance.GenereteNewCard();
 		return cardViewController;
 	}
 
@@ -75,7 +78,7 @@ public class CardsHandManager : MonoBehaviour {
 
 			Vector3 pos = new Vector3(posX, _startPosition.y, 0.0f) + _pickingLayoutOffset;
 			int j = i;
-			_cardViewControllers[i]._rectMoveAnimator.MoveToPosition(pos, 0.8f + i * 0.15f, () => {
+			_cardViewControllers[i]._rectMoveAnimator.MoveToPosition(pos, 0.5f + i * 0.08f, () => {
 				if (j == 0 && finishedDelegate != null) {
 					finishedDelegate();
 				}
@@ -117,7 +120,7 @@ public class CardsHandManager : MonoBehaviour {
 		});
 
 		while (!canContinue || !GameControlsManager.Instance.FireButonIsActive) {
-			yield return new WaitForEndOfFrame();
+			yield return null;
 		}
 
 		if (_cardViewControllers.Count == kMaxNumberOfCards) {
@@ -170,7 +173,11 @@ public class CardsHandManager : MonoBehaviour {
 				canChangeHighlight = true;
 			}
 
-			yield return new WaitForEndOfFrame();
+			yield return null;
+		}
+
+		if (CardWasChosenEvent != null) {
+			CardWasChosenEvent(_cardViewControllers[highlightedCardIdx].CurrentCard);
 		}
 
 		DiscardCard(highlightedCardIdx);

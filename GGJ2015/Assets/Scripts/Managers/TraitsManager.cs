@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System;
 
 public class TraitsManager : Singleton<TraitsManager> {
-	
+
+	public event Action<string> TraitWasAdded;
+
 	private Dictionary<string, Action> TraitWasAddedEvent;
 	private Dictionary<string, int> _activeTraits;
 
@@ -22,9 +24,15 @@ public class TraitsManager : Singleton<TraitsManager> {
 		else {
 			_activeTraits[trait] = _activeTraits[trait] + 1;
 		}
-		Action action = TraitWasAddedEvent[trait];
-		if (action != null) {
-			action();
+		if (TraitWasAddedEvent.ContainsKey(trait)) {
+			Action action = TraitWasAddedEvent[trait];
+			if (action != null) {
+				action();
+			}
+		}
+
+		if (TraitWasAdded != null) {
+			TraitWasAdded(trait);
 		}
 	}
 

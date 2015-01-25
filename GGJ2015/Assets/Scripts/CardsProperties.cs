@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CardsProperties : MonoBehaviour {
+public class CardsProperties : Singleton<CardsProperties> {
 
 	[System.Serializable]
 	public class TraitProperties {
@@ -23,9 +23,27 @@ public class CardsProperties : MonoBehaviour {
 	public TraitProperties[] posTraitProperties;
 	public TraitProperties[] negTraitProperties;
 	
-	public Card genereteNewCard() {
+	public Card GenereteNewCard() {
+
 		TraitProperties pos = posTraitProperties[Random.Range(0, posTraitProperties.Length)];
-		TraitProperties neg = posTraitProperties[Random.Range(0, negTraitProperties.Length)];
+		TraitProperties neg = negTraitProperties[Random.Range(0, negTraitProperties.Length)];
 		return new Card(pos, neg);
+	}
+
+	public TraitProperties TraitForID(string traitID) {
+
+		foreach (TraitProperties prop in posTraitProperties) {
+			if (prop.id == traitID) {
+				return prop;
+			}
+		}
+
+		foreach (TraitProperties prop in negTraitProperties) {
+			if (prop.id == traitID) {
+				return prop;
+			}
+		}
+
+		return null;
 	}
 }

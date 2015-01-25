@@ -12,8 +12,9 @@ GameObject:
   - 114: {fileID: 11433064}
   - 114: {fileID: 11433062}
   - 114: {fileID: 11433068}
-  - 114: {fileID: 11432832}
   - 114: {fileID: 11432834}
+  - 114: {fileID: 11414572}
+  - 114: {fileID: 11495212}
   m_Layer: 0
   m_Name: GlobalManagers
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11432832
+--- !u!114 &11414572
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -41,9 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 133068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bef9288923b74ea08443e5bd8909ae8, type: 3}
+  m_Script: {fileID: 11500000, guid: ef08c15c45f9049949ef8a695a2d238b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageMultiplier: 1
+  numberOfJumps: 2
 --- !u!114 &11432834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -62,6 +65,7 @@ MonoBehaviour:
   _lessEnemies: 0
   _zoomOut: 0
   _slowEnemies: 0
+  _moreEnemies: 0
 --- !u!114 &11433062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,6 +117,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11f4d9b8cfe17416dbbc77f90fbcdc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11495212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bef9288923b74ea08443e5bd8909ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000

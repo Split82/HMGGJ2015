@@ -9,7 +9,7 @@ public class ScreenTraits : MonoBehaviour {
 	
 	void Start () {
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("BTS", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("BLUR", () => {
 			_blurEffect.enabled = true;
 		});
 

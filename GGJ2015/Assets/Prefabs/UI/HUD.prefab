@@ -318,8 +318,9 @@ GameObject:
   - 224: {fileID: 22490298}
   - 222: {fileID: 22290294}
   - 114: {fileID: 11490300}
+  - 114: {fileID: 11465782}
   m_Layer: 5
-  m_Name: TopPanel
+  m_Name: TraitsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,6 +353,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cardPickTimerText: {fileID: 11490266}
+--- !u!114 &11465782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c940d46a11284b86bd97ba03cfb70c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _traitImagePrefab: {fileID: 165898, guid: 0c24753458e5d43c3a94376e3d3b1661, type: 2}
 --- !u!114 &11490262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -381,7 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 48
-  m_ScaleFactor: 2
+  m_ScaleFactor: 2.00999999
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -719,7 +732,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcb168068513b49609d1560c5c18dcab, type: 3}
-    m_FontSize: 80
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1144,7 +1157,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.10000002, y: -28.2000008}
+  m_AnchoredPosition: {x: 3.05180001e-05, y: -18.3999996}
   m_SizeDelta: {x: 130, y: 80}
   m_Pivot: {x: 1, y: 1}
 --- !u!224 &22490288
@@ -1162,7 +1175,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -2.20000005, y: -33.4000015}
+  m_AnchoredPosition: {x: 7.15260001e-07, y: -25.1000004}
   m_SizeDelta: {x: 90, y: 62}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22490290
@@ -1253,8 +1266,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 30}
-  m_Pivot: {x: .5, y: 1}
+  m_SizeDelta: {x: 0, y: 20}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
