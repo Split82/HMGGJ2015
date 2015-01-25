@@ -290,6 +290,7 @@ MonoBehaviour:
   _enemyLifetimeNotifier: {fileID: 11431170}
   _enemyDeathJumpMovement: {fileID: 11431172}
   _whiteSpriteFlash: {fileID: 11469662}
+  _enemySprite: {fileID: 116054}
   _batMovement: {fileID: 11437820}
   _batMovementController: {fileID: 11491620}
 --- !u!114 &11469662

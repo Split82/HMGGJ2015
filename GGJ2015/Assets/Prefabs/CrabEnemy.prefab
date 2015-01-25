@@ -438,6 +438,7 @@ MonoBehaviour:
   _enemyLifetimeNotifier: {fileID: 11402306}
   _enemyDeathJumpMovement: {fileID: 11402304}
   _whiteSpriteFlash: {fileID: 11448642}
+  _enemySprite: {fileID: 102308}
   _basicMovement: {fileID: 11402318}
   _basicMovementCheck: {fileID: 11402314}
 --- !u!114 &11402318
