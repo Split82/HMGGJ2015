@@ -32,6 +32,7 @@ public class RhinoEnemyController : EnemyController {
 		_basicMovement.enabled = true;
 		_basicMovementCheck.enabled = true;
 		_basicMovementCheck.StartWorking();
+		_enemySeePlayerCheck.StartWorking();
 	}
 	
 	protected override void PrepareForSleep() {
@@ -54,6 +55,8 @@ public class RhinoEnemyController : EnemyController {
 	}
 
 	void MovementToPlayer() {
+
+		Debug.Log("movement");
 
 		if (_enemySeePlayerCheck.IsPlayerVisibleHorizontal) {
 			_basicMovement.Direction = _enemySeePlayerCheck.SimpleDirectionToPlayer;
