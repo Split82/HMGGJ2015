@@ -401,6 +401,8 @@ MonoBehaviour:
   _enemyDeathJumpMovement: {fileID: 11404908}
   _whiteSpriteFlash: {fileID: 11471704}
   _enemySprite: {fileID: 119746}
+  _stayForever: 1
+  _dealDamageCollider: {fileID: 6177278}
   _health: 0
   _basicMovement: {fileID: 11419736}
   _basicMovementCheck: {fileID: 11419740}

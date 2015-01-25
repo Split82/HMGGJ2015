@@ -30,7 +30,7 @@ public class CardScreensAnimatorController : MonoBehaviour {
 
 	public void ShowGameOver() {
 
-		_animator.SetBool(_gameOverAnimatorParam, true);
+		_animator.SetTrigger(_gameOverAnimatorParam);
 	}
 
 	public void HideAll() {

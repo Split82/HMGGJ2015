@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CardsHandManager : MonoBehaviour {
+public class CardsHandManager : Singleton<CardsHandManager> {
 
 	public RectTransform[] _cardSlotsRectTransforms;
 	public CardScreensAnimatorController _cardScreensAnimatorController;
@@ -13,6 +13,7 @@ public class CardsHandManager : MonoBehaviour {
 	public float _cardWidth = 140.0f;
 
 	public event System.Action<CardsProperties.Card> CardWasChosenEvent;
+	public event System.Action CardWasPickedEvent;
 
 	public int NumberOfCardsInHand {
 		get {
@@ -98,7 +99,7 @@ public class CardsHandManager : MonoBehaviour {
 
 		CardViewController cardViewController = _cardViewControllers[cardNum];
 
-		cardViewController._rectMoveAnimator.MoveToPosition(cardViewController._rectTransform.position + new Vector3(0.0f, 500.0f, 0.0f), 1.0f, () => {
+		cardViewController._rectMoveAnimator.MoveToPosition(cardViewController._rectTransform.position - new Vector3(0.0f, 500.0f, 0.0f), 1.0f, () => {
 			Destroy(cardViewController.gameObject);
 		});
 
@@ -212,7 +213,10 @@ public class CardsHandManager : MonoBehaviour {
 	}
 
 	public void PresentNewPickedCard(System.Action finishedDelegate) {
-		
+
+		if (CardWasPickedEvent != null) {
+			CardWasPickedEvent();
+		}
 		StartCoroutine(PresentNewPickedCardCoroutine(finishedDelegate));
 	}
 	

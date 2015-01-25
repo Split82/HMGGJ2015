@@ -10,6 +10,8 @@ public abstract class EnemyController : MonoBehaviour {
 	public EnemyDeathJumpMovement _enemyDeathJumpMovement;
 	public WhiteSpriteFlash _whiteSpriteFlash;
 	public GameObject _enemySprite;
+	public bool _stayForever;
+	public Collider2D _dealDamageCollider;
 
 	public float _health;
 
@@ -27,6 +29,7 @@ public abstract class EnemyController : MonoBehaviour {
 		Check.Null(_enemyLifetimeNotifier);
 		Check.Null(_enemyDeathJumpMovement);
 		Check.Null(_whiteSpriteFlash);
+		Check.Null(_dealDamageCollider);
 
 		_enemyDeathJumpMovement.enabled = false;
 		
@@ -46,6 +49,7 @@ public abstract class EnemyController : MonoBehaviour {
 		
 		_enemySleepCheck.enabled = true;
 		_enemyDeathJumpMovement.enabled = false;
+		_dealDamageCollider.enabled = true;
 		_health = _maxHealth;
 		
 		_enemyLifetimeNotifier.EnemyDidSpawn();
@@ -56,10 +60,11 @@ public abstract class EnemyController : MonoBehaviour {
 		_health -= damageAmount * GameTraits.Instance.damageMultiplier;
 		if (_health <= 0) {
 			PrepareForDeathJump();
+			_dealDamageCollider.enabled = false;
 			_enemySleepCheck.enabled = false;
 			_enemyDeathJumpMovement.enabled = true;
 			_enemyDeathJumpMovement.JumpWithDirection (damageForceDirection);
-			
+
 			StartCoroutine(PrepareForDeath(damageForceDirection));
 		}
 	}
@@ -75,12 +80,17 @@ public abstract class EnemyController : MonoBehaviour {
 	
 	IEnumerator PrepareForDeath(Vector2 deathForceDirection) {
 		
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(1.5f);
 		
 		_enemyLifetimeNotifier.EnemyWasKilled();
 
-		StayForeverManager.Instance.StayForever(new GameObject[1] {_enemySprite}, () => {
+		if (_stayForever) {
+			StayForeverManager.Instance.StayForever(new GameObject[1] {_enemySprite}, () => {
+				gameObject.Recycle();
+			});
+		}
+		else {
 			gameObject.Recycle();
-		});
+		}
 	}
 }
