@@ -2764,6 +2764,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9592756, guid: 616b23db7e39c4a0ea76b9e3b31141eb, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 25ee81cc134e84a918dc7f6906fbadaa, type: 2}
+    - target: {fileID: 492764, guid: 616b23db7e39c4a0ea76b9e3b31141eb, type: 2}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21292756, guid: 616b23db7e39c4a0ea76b9e3b31141eb, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21292756, guid: 616b23db7e39c4a0ea76b9e3b31141eb, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21292756, guid: 616b23db7e39c4a0ea76b9e3b31141eb, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 616b23db7e39c4a0ea76b9e3b31141eb, type: 2}
   m_RootGameObject: {fileID: 1612626158}
@@ -10190,7 +10210,7 @@ Transform:
   m_GameObject: {fileID: 1228650709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 1812372222}
   - {fileID: 641929052}
@@ -10220,7 +10240,7 @@ Animator:
   m_GameObject: {fileID: 1228650709}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 33e97f283f37b40478dc80a5012e710c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 25ee81cc134e84a918dc7f6906fbadaa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -10248,7 +10268,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6a806a9c97a7b441189eb78f6d87e505, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1240015812
 Prefab:
   m_ObjectHideFlags: 0
@@ -12944,9 +12964,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkInterval: .100000001
   _followSpeed: 100
-  _attackSpeed: 500
+  _attackSpeed: 150
   _waitDistance: 2
-  _waitInterval: .300000012
+  _waitInterval: 0
   _state: 0
 --- !u!114 &1535210695
 MonoBehaviour:
@@ -16081,11 +16101,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11437820, guid: 5345ff5b19ce842deb901a9362012280, type: 2}
       propertyPath: _attackSpeed
-      value: 500
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 11437820, guid: 5345ff5b19ce842deb901a9362012280, type: 2}
       propertyPath: _waitInterval
-      value: .300000012
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11437820, guid: 5345ff5b19ce842deb901a9362012280, type: 2}
       propertyPath: _changeStateInterval
