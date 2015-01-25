@@ -29,19 +29,23 @@ public class EnemySpawnZone : MonoBehaviour {
 
 	IEnumerator SpawnGroup(int groupIndex) {
 
+		Vector3 playerPos = GameplayManager.Instance._playerController._playerTransform.position;
 		while (_enemyGroupsSpawnParams.Length > groupIndex &&  _enemySpawnZoneRects.Length > 0) {
 			Rect spawnRect = _enemySpawnZoneRects[Random.Range(0, _enemySpawnZoneRects.Length)];
 			EnemyGroupSpawnParams spawnParams = _enemyGroupsSpawnParams[groupIndex];
 			if (CanSpawnEnemies(spawnParams._enemyPrefabs.Length)) {
 				foreach (GameObject enemyPrefab in spawnParams._enemyPrefabs) {
-					GameObject enemy = _enemyManager.CreateEnemyFromPrefab(enemyPrefab);
-					enemy.transform.position = new Vector3(Random.Range(spawnRect.xMin, spawnRect.xMax), Random.Range(spawnRect.yMin, spawnRect.yMax)) + transform.position;
-					EnemyLifetimeNotifier enemyLifetimeNotifier = enemy.GetComponent<EnemyLifetimeNotifier>();
-					enemyLifetimeNotifier.EnemyDidSpawnEvent += EnemyDidSpawn;
-					enemyLifetimeNotifier.EnemyWasKilledEvent += EnemyWasKilled;
-					_enemyManager.AddEnemy(enemy);
-					EnemyController enemyController = enemy.GetComponent<EnemyController>();
-					enemyController.PrepareForSpawn();
+					Vector3 newPos = new Vector3(Random.Range(spawnRect.xMin, spawnRect.xMax), Random.Range(spawnRect.yMin, spawnRect.yMax)) + transform.position;
+					if (Vector3.Distance(playerPos, newPos) > 5) {
+						GameObject enemy = _enemyManager.CreateEnemyFromPrefab(enemyPrefab);
+						enemy.transform.position = newPos;
+						EnemyLifetimeNotifier enemyLifetimeNotifier = enemy.GetComponent<EnemyLifetimeNotifier>();
+						enemyLifetimeNotifier.EnemyDidSpawnEvent += EnemyDidSpawn;
+						enemyLifetimeNotifier.EnemyWasKilledEvent += EnemyWasKilled;
+						_enemyManager.AddEnemy(enemy);
+						EnemyController enemyController = enemy.GetComponent<EnemyController>();
+						enemyController.PrepareForSpawn();
+					}
 				}
 			}
 			float waitMul = 1;
