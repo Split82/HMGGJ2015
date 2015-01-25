@@ -4,14 +4,28 @@ using System.Collections;
 public class CardsProperties : MonoBehaviour {
 
 	[System.Serializable]
-	public class CardProperties {
+	public class TraitProperties {
 		public string id;
 
-		public Sprite icon1;
-		public Sprite icon2;
+		public Sprite icon;
 
-		public string text1;
-		public string text2;
+		public string text;
 	}
-	public CardProperties[] cardProperties;
+
+	public class Card {
+		public TraitProperties pos, neg;
+		public Card(TraitProperties pos, TraitProperties neg) {
+			this.pos = pos;
+			this.neg = neg;
+		}
+	}
+
+	public TraitProperties[] posTraitProperties;
+	public TraitProperties[] negTraitProperties;
+	
+	public Card genereteNewCard() {
+		TraitProperties pos = posTraitProperties[Random.Range(0, posTraitProperties.Length)];
+		TraitProperties neg = posTraitProperties[Random.Range(0, negTraitProperties.Length)];
+		return new Card(pos, neg);
+	}
 }
