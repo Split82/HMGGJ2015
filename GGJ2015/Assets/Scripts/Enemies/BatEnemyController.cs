@@ -4,6 +4,7 @@ using System.Collections;
 public class BatEnemyController : EnemyController {
 
 	public BatEnemyMovement _batMovement;
+	public BatEnemyMovementController _batMovementController;
 
 	void Start() {
 
@@ -13,7 +14,7 @@ public class BatEnemyController : EnemyController {
 	public override void PrepareForSpawn() {
 
 		CommonPrepareForSpawn();
-
+		_batMovementController.StartWorking(); 
 		_batMovement.enabled = true;
 	}
 

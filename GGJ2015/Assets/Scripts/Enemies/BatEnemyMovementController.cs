@@ -12,21 +12,13 @@ public class BatEnemyMovementController : MonoBehaviour {
 
 	private Rigidbody2D _rigidBody2D;
 
-	void Start() {
-
-		Check.Null(_batEnemyMovement);
-		_rigidBody2D = GetComponent<Rigidbody2D>();
-		StartCoroutine(ChangeState());
-		StartCoroutine(AttackPositionUpdate());
-	}
-
 	IEnumerator AttackPositionUpdate() {
 		
 		while (true) {
 			
-			if (_batEnemyMovement.State == BatEnemyMovement.BatEnemyStateEnum.Follow) {
-				_batEnemyMovement.AttackLocation = GameplayManager.Instance._playerController._playerTransform.position;
-			}
+			_batEnemyMovement.AttackLocation = GameplayManager.Instance._playerController._playerTransform.position;
+			Debug.Log(_batEnemyMovement.AttackLocation);
+
 			yield return new WaitForSeconds(_checkInterval);
 		}
 	}
@@ -45,6 +37,13 @@ public class BatEnemyMovementController : MonoBehaviour {
 			
 			yield return new WaitForSeconds(_checkInterval);
 		}
+	}
+
+	public void StartWorking() {
+		Check.Null(_batEnemyMovement);
+		_rigidBody2D = GetComponent<Rigidbody2D>();
+		StartCoroutine(ChangeState());
+		StartCoroutine(AttackPositionUpdate());
 	}
 
 }
