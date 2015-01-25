@@ -11,6 +11,12 @@ public class CardsHandManager : MonoBehaviour {
 	public Vector3 _idleCardsOffset = new Vector3(10.0f, -120.0f, 0.0f);
 	public Vector3 _pickingLayoutOffset = new Vector3(10.0f, -20.0f, 0.0f);
 	public float _cardWidth = 140.0f;
+
+	public int NumberOfCardsInHand {
+		get {
+			return _cardViewControllers.Count;
+		}
+	}
 	
 	private const int kMaxNumberOfCards = 5;
 	private List<CardViewController> _cardViewControllers;
@@ -96,17 +102,7 @@ public class CardsHandManager : MonoBehaviour {
 		_cardViewControllers[cardNum] = null;
 		_cardViewControllers.RemoveAll(item => item == null);
 	}
-
-	public void PresentNewPickedCard(System.Action finishedDelegate) {
-
-		StartCoroutine(PresentNewPickedCardCoroutine(finishedDelegate));
-	}
-
-	public void PresentChooseCard(System.Action finishedDelegate) {
-		
-		StartCoroutine(PresentChooseCardCoroutine(finishedDelegate));
-	}
-
+	
 	private IEnumerator PresentNewPickedCardCoroutine(System.Action finishedDelegate) {
 
 		_cardScreensAnimatorController.ShowPickedCardScreen();
@@ -185,6 +181,26 @@ public class CardsHandManager : MonoBehaviour {
 		if (finishedDelegate != null) {
 			finishedDelegate();
 		}
+	}
+
+	public void PresentNewPickedCard(System.Action finishedDelegate) {
+		
+		StartCoroutine(PresentNewPickedCardCoroutine(finishedDelegate));
+	}
+	
+	public void PresentChooseCard(System.Action finishedDelegate) {
+		
+		StartCoroutine(PresentChooseCardCoroutine(finishedDelegate));
+	}
+
+	public void PresentGameOver(System.Action finishedDelegate) {
+
+	}
+
+	public void DiscardRandomCard() {
+
+		DiscardCard(Random.Range(0, _cardViewControllers.Count));
+		LayoutCardsForIdle();
 	}
 
 }
