@@ -46,6 +46,10 @@ public class AltarGuidingArrow : MonoBehaviour {
 		_arrowSpriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Clamp01((distance - _minVisibleDistance) / (_fadeOutDistance - _minVisibleDistance)));
 
 		_transform.localPosition = _radius * altarDir / distance;
-		_transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector3.Angle(Vector3.right, altarDir));
+		float angle = Vector3.Angle(Vector3.right, altarDir);
+		if (altarDir.y < 0.0f) {
+			angle *= -1.0f;
+		}
+		_transform.localEulerAngles = new Vector3(0.0f, 0.0f, angle);
 	}
 }

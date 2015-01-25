@@ -17,10 +17,6 @@ public class AltarManager : Singleton<AltarManager> {
 
 	private Altar _altarWithCard;
 
-	void Awake() {
-		_altars = new List<Altar>();
-	}
-
 	void Start() {
 
 		SpawnCardOnRandomAltar();
@@ -28,6 +24,9 @@ public class AltarManager : Singleton<AltarManager> {
 	
 	public void RegisterAltar(Altar altar) {
 
+		if (_altars == null) {
+			_altars = new List<Altar>();
+		}
 		_altars.Add(altar);
 	}
 
