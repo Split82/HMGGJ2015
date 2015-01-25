@@ -14,7 +14,14 @@ public class GameplayManager : Singleton<GameplayManager> {
 		}
 	}
 
+	public int Score {
+		get {
+			return _score;
+		}
+	}
+
 	private float _timeTillNextCardPick;
+	private int _score;
 
 	void Awake() {
 
@@ -45,22 +52,20 @@ public class GameplayManager : Singleton<GameplayManager> {
 			TraitsManager.Instance.AddTrait(card.pos.id);
 			TraitsManager.Instance.AddTrait(card.neg.id);
 		};
+
+		EnemyManager.Instance.EnemyWasKilledEvent += () => {
+			_score++;
+		};
+
+		CardsHandManager.Instance.CardWasPickedEvent += () => {
+			_score += 100;
+		};
+
 	}
 
 	void Start() {
 
 		StartCoroutine(CardPickCoroutine());
-	}
-	
-	void Update() {
-
-//		if (Input.GetKeyDown(KeyCode.Space)) {
-//			float oldTimeScale = Time.timeScale;
-//			Time.timeScale = 0.0f;
-//			_cardsHandManager.PresentChooseCard(() => {
-//				Time.timeScale = oldTimeScale;
-//			});
-//		}
 	}
 
 	private IEnumerator CardPickCoroutine() {
@@ -92,4 +97,5 @@ public class GameplayManager : Singleton<GameplayManager> {
 			}
 		}
 	}
+
 }

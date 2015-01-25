@@ -9,6 +9,8 @@ public class EnemyManager : Singleton<EnemyManager> {
 	public GameObject _batEmenyPrefab;
 	public GameObject _crabEmenyPrefab;
 
+	public event System.Action EnemyWasKilledEvent;
+
 	public int EnemyCount {
 		get {
 			return _enemies.Count;
@@ -68,6 +70,10 @@ public class EnemyManager : Singleton<EnemyManager> {
 	
 		_enemies.Remove (enemyLifetimeNotifier.gameObject);
 		enemyLifetimeNotifier.EnemyWasKilledEvent -= EnemyWasKilled;
+
+		if (EnemyWasKilledEvent != null) {
+			EnemyWasKilledEvent();
+		}
 	}
 
 }
