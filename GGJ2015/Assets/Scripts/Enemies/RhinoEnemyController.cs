@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RhinoEnemyController : MonoBehaviour {
+public class RhinoEnemyController : EnemyController {
 
 	public BasicMovement _basicMovement;
 	public BasicMovementCheck _basicMovementCheck;	
@@ -49,6 +49,9 @@ public class RhinoEnemyController : MonoBehaviour {
 		_enemySeePlayerCheck.IsPlayerVisibleHorizontalValueHasChangedEvent += MovementToPlayer;
 
 		_enemySeePlayerCheck.SimpleDirectionToPlayerValueHasChangedEvent += MovementToPlayer;
+	}
+
+	public override void PrepareForSpawn() {
 	}
 
 	void MovementToPlayer() {
