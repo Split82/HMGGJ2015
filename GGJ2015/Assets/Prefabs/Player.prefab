@@ -428,7 +428,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _offset: {x: 0, y: -.550000012}
-  _size: {x: .330000013, y: .100000001}
+  _size: {x: .200000003, y: .100000001}
 --- !u!114 &11499326
 MonoBehaviour:
   m_ObjectHideFlags: 1
