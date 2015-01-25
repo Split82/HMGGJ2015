@@ -27,7 +27,7 @@ public class GameTraits : Singleton<GameTraits> {
 		});
 
 		TraitsManager.Instance.RegisterForTraitWasAddedEvent("LAKK", () => {
-			swapControls = true;
+			swapControls = !swapControls;
 		});
 	}
 }

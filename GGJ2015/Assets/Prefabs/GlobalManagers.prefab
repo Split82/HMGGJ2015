@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMultiplier: 1
   numberOfJumps: 2
+  swapControls: 0
 --- !u!114 &11432834
 MonoBehaviour:
   m_ObjectHideFlags: 1
