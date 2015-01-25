@@ -37,8 +37,6 @@ public class BasicMovementCheck : MonoBehaviour {
 	void Start() {
 		Check.Null(_fallGroundedCheck);
 		Check.Null(_wallGroundedCheck);
-
-		StartCoroutine(MovementCheck());
 	}
 
 	IEnumerator MovementCheck() {
@@ -51,5 +49,10 @@ public class BasicMovementCheck : MonoBehaviour {
 			}
 			yield return new WaitForSeconds(_checkInterval);
 		}
+	}
+
+	public void StartWorking() {
+
+		StartCoroutine(MovementCheck());
 	}
 }
