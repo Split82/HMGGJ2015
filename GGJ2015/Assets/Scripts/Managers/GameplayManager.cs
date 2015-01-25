@@ -26,6 +26,8 @@ public class GameplayManager : Singleton<GameplayManager> {
 			if (_cardsHandManager.NumberOfCardsInHand == 0) {
 				Time.timeScale = 0.0f;
 				_cardsHandManager.PresentGameOver(() => {
+					Time.timeScale = 1.0f;
+					Application.LoadLevel(Application.loadedLevel);
 				});
 			}
 		};

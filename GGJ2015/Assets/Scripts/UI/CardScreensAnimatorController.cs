@@ -7,6 +7,7 @@ public class CardScreensAnimatorController : MonoBehaviour {
 	
 	private int _pickedCardAnimatorParam;
 	private int _chooseCardAnimatorParam;
+	private int _gameOverAnimatorParam;
 	
 	void Start () {
 		
@@ -14,6 +15,7 @@ public class CardScreensAnimatorController : MonoBehaviour {
 		
 		_pickedCardAnimatorParam = Animator.StringToHash("PickedCard");
 		_chooseCardAnimatorParam = Animator.StringToHash("ChooseCard");
+		_gameOverAnimatorParam = Animator.StringToHash("GameOver");
 	}
 
 	public void ShowPickedCardScreen() {
@@ -24,6 +26,11 @@ public class CardScreensAnimatorController : MonoBehaviour {
 	public void ShowChooseCardScreen() {
 		
 		_animator.SetBool(_chooseCardAnimatorParam, true);
+	}
+
+	public void ShowGameOver() {
+
+		_animator.SetBool(_gameOverAnimatorParam, true);
 	}
 
 	public void HideAll() {

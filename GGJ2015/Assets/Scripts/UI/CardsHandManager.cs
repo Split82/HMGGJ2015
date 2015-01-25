@@ -183,6 +183,27 @@ public class CardsHandManager : MonoBehaviour {
 		}
 	}
 
+	private IEnumerator PresentGameOverCoroutine(System.Action finishedDelegate) {
+
+		_cardScreensAnimatorController.ShowGameOver();
+
+		float elapsedTime = 0.0f;
+		while (elapsedTime < 1.0f) {
+			elapsedTime += Time.unscaledDeltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+
+		while (true) {
+			if (Input.anyKey) {
+				if (finishedDelegate != null) {
+					finishedDelegate();
+					break;
+				}
+			}
+			yield return new WaitForEndOfFrame();
+		}
+	}
+
 	public void PresentNewPickedCard(System.Action finishedDelegate) {
 		
 		StartCoroutine(PresentNewPickedCardCoroutine(finishedDelegate));
@@ -195,6 +216,7 @@ public class CardsHandManager : MonoBehaviour {
 
 	public void PresentGameOver(System.Action finishedDelegate) {
 
+		StartCoroutine(PresentGameOverCoroutine(finishedDelegate));
 	}
 
 	public void DiscardRandomCard() {

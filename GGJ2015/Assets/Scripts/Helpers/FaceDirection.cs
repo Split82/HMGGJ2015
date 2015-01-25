@@ -28,8 +28,7 @@ public class FaceDirection : MonoBehaviour {
 	private DirectionEnum _direction = DirectionEnum.Right;
 	private Rigidbody2D _rigidbody2D;
 	
-	void Start() {
-
+	void Awake() {
 		_rigidbody2D = rigidbody2D;
 	}
 }
