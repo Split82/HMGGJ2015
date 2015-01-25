@@ -14,20 +14,31 @@ public class GameplayManager : Singleton<GameplayManager> {
 		Check.Null(_altarManager);
 
 		_altarManager.CardWasPickedFromAltarEvent += () => {
+			float oldTimeScale = Time.timeScale;
 			Time.timeScale = 0.0f;
 			_cardsHandManager.PresentNewPickedCard(() => {
-				Time.timeScale = 1.0f;
+				Time.timeScale = oldTimeScale;
 			});
+		};
+
+		_playerController.PlayerWasHitEvent += () => {
+			_cardsHandManager.DiscardRandomCard();
+			if (_cardsHandManager.NumberOfCardsInHand == 0) {
+				Time.timeScale = 0.0f;
+				_cardsHandManager.PresentGameOver(() => {
+				});
+			}
 		};
 	}
 
 	void Update() {
 
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			Time.timeScale = 0.0f;
-			_cardsHandManager.PresentChooseCard(() => {
-				Time.timeScale = 1.0f;
-			});
-		}
+//		if (Input.GetKeyDown(KeyCode.Space)) {
+//			float oldTimeScale = Time.timeScale;
+//			Time.timeScale = 0.0f;
+//			_cardsHandManager.PresentChooseCard(() => {
+//				Time.timeScale = oldTimeScale;
+//			});
+//		}
 	}
 }
