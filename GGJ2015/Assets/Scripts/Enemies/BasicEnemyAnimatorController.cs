@@ -22,7 +22,7 @@ public class BasicEnemyAnimatorController : MonoBehaviour {
 	
 	void Update () {
 
-		_animator.SetBool(_leftAnimatorParam, _faceDirection.Direction == FaceDirection.DirectionEnum.Left);
 		_animator.SetBool(_deadAnimatorParam, _enemyController._health <= 0);
+		_animator.SetBool(_leftAnimatorParam, _faceDirection.Direction == FaceDirection.DirectionEnum.Left);
 	}
 }

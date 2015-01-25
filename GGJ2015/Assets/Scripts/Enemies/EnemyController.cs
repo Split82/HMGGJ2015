@@ -53,7 +53,7 @@ public abstract class EnemyController : MonoBehaviour {
 	
 	void ApplyDamage(float damageAmount, Vector2 damageForceDirection) {
 		
-		_health -= damageAmount;
+		_health -= damageAmount * GameTraits.Instance.damageMultiplier;
 		if (_health <= 0) {
 			PrepareForDeathJump();
 			_enemySleepCheck.enabled = false;
