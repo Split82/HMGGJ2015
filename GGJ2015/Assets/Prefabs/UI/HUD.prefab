@@ -11,6 +11,7 @@ GameObject:
   - 223: {fileID: 22390262}
   - 114: {fileID: 11490264}
   - 114: {fileID: 11490262}
+  - 114: {fileID: 11440546}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -29,7 +30,7 @@ GameObject:
   - 222: {fileID: 22290262}
   - 114: {fileID: 11490266}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TimeToCardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +319,7 @@ GameObject:
   - 222: {fileID: 22290294}
   - 114: {fileID: 11490300}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: TopPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,6 +340,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11440546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e678f54b907249d7af44799f5c7517c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardPickTimerText: {fileID: 11490266}
 --- !u!114 &11490262
 MonoBehaviour:
   m_ObjectHideFlags: 1
