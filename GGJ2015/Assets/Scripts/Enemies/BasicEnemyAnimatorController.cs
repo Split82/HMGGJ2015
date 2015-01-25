@@ -24,7 +24,5 @@ public class BasicEnemyAnimatorController : MonoBehaviour {
 
 		_animator.SetBool(_leftAnimatorParam, _faceDirection.Direction == FaceDirection.DirectionEnum.Left);
 		_animator.SetBool(_deadAnimatorParam, _enemyController._health <= 0);
-		if (_enemyController._health <= 0) 
-			Debug.Log("dead");
 	}
 }
