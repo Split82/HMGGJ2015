@@ -3,13 +3,14 @@ using System.Collections;
 
 public class GlobalTraits : Singleton<GlobalTraits> {
 
-	public bool _shieldsOff = true;
-	public bool _rearGun = true;
-	public bool _wallsOff = true;
-	public bool _doubleBullets = true;
-	public bool _lessEnemies = true;
-	public bool _zoomOut = true;
-	public bool _slowEnemies = true;
+	public bool _shieldsOff;
+	public bool _rearGun;
+	public bool _wallsOff;
+	public bool _doubleBullets;
+	public bool _lessEnemies;
+	public bool _zoomOut;
+	public bool _slowEnemies;
+	public bool _moreEnemies;
 
 	void Start () {
 	
@@ -39,6 +40,10 @@ public class GlobalTraits : Singleton<GlobalTraits> {
 
 		TraitsManager.Instance.RegisterForTraitWasAddedEvent("oko", () => {
 			_slowEnemies = true;
+		});
+
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent("krox", () => {
+			_moreEnemies = true;
 		});
 
 	}

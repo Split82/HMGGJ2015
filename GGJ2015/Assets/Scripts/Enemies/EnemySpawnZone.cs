@@ -44,7 +44,14 @@ public class EnemySpawnZone : MonoBehaviour {
 					enemyController.PrepareForSpawn();
 				}
 			}
-			yield return new WaitForSeconds((spawnParams._spawnTime + Random.value * spawnParams._spawnTimeDelta) * (GlobalTraits.Instance._lessEnemies ? 2 : 1));
+			float waitMul = 1;
+			if (GlobalTraits.Instance._lessEnemies) {
+				waitMul *= 2; 
+			}
+			if (GlobalTraits.Instance._moreEnemies) {
+				waitMul *= 0.5f; 
+			}
+			yield return new WaitForSeconds((spawnParams._spawnTime + Random.value * spawnParams._spawnTimeDelta) * waitMul);
 		}
 	}
 
