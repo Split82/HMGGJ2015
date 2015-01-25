@@ -13,8 +13,8 @@ GameObject:
   - 114: {fileID: 11433062}
   - 114: {fileID: 11433068}
   - 114: {fileID: 11432834}
-  - 114: {fileID: 11436078}
   - 114: {fileID: 11414572}
+  - 114: {fileID: 11495212}
   m_Layer: 0
   m_Name: GlobalManagers
   m_TagString: Untagged
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f4d9b8cfe17416dbbc77f90fbcdc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11436078
+--- !u!114 &11495212
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
