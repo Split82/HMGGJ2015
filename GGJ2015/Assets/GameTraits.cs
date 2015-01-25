@@ -5,6 +5,9 @@ public class GameTraits : Singleton<GameTraits> {
 
 	public float damageMultiplier = 1f;
 	public int numberOfJumps = 2;
+
+	public bool swapControls = false;
+
 	void Start () {
 
 		TraitsManager.Instance.RegisterForTraitWasAddedEvent("OPPO", () => {
