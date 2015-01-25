@@ -393,13 +393,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69853747f76a548f9a2c62df9306a10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _basicMovement: {fileID: 11419736}
-  _basicMovementCheck: {fileID: 11419740}
   _enemySleepCheck: {fileID: 11421194}
   _maxHealth: 1
   _damageReceiveHitDetector: {fileID: 11411634}
   _enemyLifetimeNotifier: {fileID: 11483758}
   _enemyDeathJumpMovement: {fileID: 11404908}
+  _basicMovement: {fileID: 11419736}
+  _basicMovementCheck: {fileID: 11419740}
 --- !u!114 &11419740
 MonoBehaviour:
   m_ObjectHideFlags: 1

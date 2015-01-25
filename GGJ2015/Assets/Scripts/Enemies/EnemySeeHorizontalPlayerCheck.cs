@@ -29,8 +29,6 @@ public class EnemySeeHorizontalPlayerCheck : MonoBehaviour {
 	void Start() {
 
 		_transform = GetComponent<Transform>();
-
-		StartCoroutine(PlayerVisibilityCheck());
 	}
 	
 	IEnumerator PlayerVisibilityCheck() {
@@ -76,4 +74,8 @@ public class EnemySeeHorizontalPlayerCheck : MonoBehaviour {
 		_isPlayerVisibleHorizontal = (count > 0);
 	}
 
+	public void StartWorking() {
+		
+		StartCoroutine(PlayerVisibilityCheck());
+	}
 }
