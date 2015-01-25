@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _force: 200
-  _maxVelocity: {x: 3, y: 10}
+  _maxVelocity: {x: 1, y: 10}
 --- !u!114 &11419738
 MonoBehaviour:
   m_ObjectHideFlags: 1

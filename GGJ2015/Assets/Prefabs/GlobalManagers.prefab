@@ -44,8 +44,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basicEmenyPrefab: {fileID: 122232, guid: 44061be32d7ae4a81907b694d3c06d7e, type: 2}
   _rhinoEmenyPrefab: {fileID: 192766, guid: 616b23db7e39c4a0ea76b9e3b31141eb, type: 2}
-  _batEmenyPrefab: {fileID: 0}
-  _crabEmenyPrefab: {fileID: 0}
+  _batEmenyPrefab: {fileID: 116056, guid: 5345ff5b19ce842deb901a9362012280, type: 2}
+  _crabEmenyPrefab: {fileID: 102312, guid: c86c8f5be70d9496eb13b136cfedb632, type: 2}
   _maxEnemyCount: 10
 --- !u!114 &11433064
 MonoBehaviour:
