@@ -131,6 +131,7 @@ GameObject:
   - 114: {fileID: 11402302}
   - 114: {fileID: 11402306}
   - 114: {fileID: 11402304}
+  - 114: {fileID: 11448642}
   m_Layer: 10
   m_Name: CrabEnemy
   m_TagString: CrabEnemy
@@ -233,7 +234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.0668316, y: -14.9630947, z: 0}
+  m_LocalPosition: {x: -5.99333286, y: -11.1313114, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 402306}
@@ -436,6 +437,7 @@ MonoBehaviour:
   _damageReceiveHitDetector: {fileID: 11402308}
   _enemyLifetimeNotifier: {fileID: 11402306}
   _enemyDeathJumpMovement: {fileID: 11402304}
+  _whiteSpriteFlash: {fileID: 11448642}
   _basicMovement: {fileID: 11402318}
   _basicMovementCheck: {fileID: 11402314}
 --- !u!114 &11402318
@@ -464,6 +466,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sleepDistance: 50
   _checkInterval: .100000001
+--- !u!114 &11448642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0787a268323b400993bf7a143a729a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderers:
+  - {fileID: 21202298}
+  _whiteMaterial: {fileID: 2100000, guid: 735ce3685977f4dc5ad2b7f3521e8785, type: 2}
+  _defaultMaterial: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!212 &21202298
 SpriteRenderer:
   m_ObjectHideFlags: 1

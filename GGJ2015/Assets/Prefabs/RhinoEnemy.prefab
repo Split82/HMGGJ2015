@@ -132,6 +132,7 @@ GameObject:
   - 114: {fileID: 11401102}
   - 114: {fileID: 11490180}
   - 114: {fileID: 11422348}
+  - 114: {fileID: 11481780}
   m_Layer: 10
   m_Name: RhinoEnemy
   m_TagString: RhinoEnemy
@@ -234,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.82800293, y: -11.2634315, z: 0}
+  m_LocalPosition: {x: -1.54049277, y: -12.1859312, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 492760}
@@ -354,6 +355,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade6206f82e5644229ba0bc672e1ba90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11481780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0787a268323b400993bf7a143a729a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderers:
+  - {fileID: 21292756}
+  _whiteMaterial: {fileID: 2100000, guid: 735ce3685977f4dc5ad2b7f3521e8785, type: 2}
+  _defaultMaterial: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &11490180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -381,6 +397,7 @@ MonoBehaviour:
   _damageReceiveHitDetector: {fileID: 11477186}
   _enemyLifetimeNotifier: {fileID: 11490180}
   _enemyDeathJumpMovement: {fileID: 11422348}
+  _whiteSpriteFlash: {fileID: 11481780}
   _basicMovement: {fileID: 11492770}
   _basicMovementCheck: {fileID: 11492760}
   _enemySeePlayerCheck: {fileID: 11401102}
