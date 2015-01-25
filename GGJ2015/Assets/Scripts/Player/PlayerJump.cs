@@ -61,7 +61,7 @@ public class PlayerJump : MonoBehaviour {
 		if (GameControlsManager.Instance.JumpButtonIsActive) {
 			
 			// Start of the jump or second jump
-			if (_didReleaseJumpButton && _numberOfJumpsSinceGrounded < 2) {
+			if (_didReleaseJumpButton && _numberOfJumpsSinceGrounded < GameTraits.Instance.numberOfJumps) {
 
 				if (PlayerDidJumpEvent != null) {
 					PlayerDidJumpEvent(_numberOfJumpsSinceGrounded);
