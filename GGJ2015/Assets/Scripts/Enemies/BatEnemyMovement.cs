@@ -53,7 +53,7 @@ public class BatEnemyMovement : MonoBehaviour {
 				_state = BatEnemyStateEnum.Wait;
 				yield return new WaitForSeconds(_waitInterval);
 				_state = BatEnemyStateEnum.Attack;
-				yield return new WaitForSeconds(_checkInterval + Random.Range(0f, 1.0f));
+				yield return new WaitForSeconds(_checkInterval);
 			}
 			if (_state == BatEnemyStateEnum.Attack && dirrectionTo(_attackLocation).magnitude < 0.1) {
 				_state = BatEnemyStateEnum.Follow;
