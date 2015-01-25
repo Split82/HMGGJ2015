@@ -22,7 +22,7 @@ TagManager:
   User Layer 11: Rope
   User Layer 12: Background
   User Layer 13: PlayerRaycastTrigger
-  User Layer 14: 
+  User Layer 14: Altars
   User Layer 15: 
   User Layer 16: 
   User Layer 17: 
@@ -44,6 +44,10 @@ TagManager:
   - name: FarBackground
     userID: 4
     uniqueID: 3334357017
+    locked: 0
+  - name: NearBackground
+    userID: 6
+    uniqueID: 3316088289
     locked: 0
   - name: Default
     userID: 0

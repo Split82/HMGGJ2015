@@ -8,6 +8,7 @@ public abstract class EnemyController : MonoBehaviour {
 	public HitDetector _damageReceiveHitDetector;
 	public EnemyLifetimeNotifier _enemyLifetimeNotifier;
 	public EnemyDeathJumpMovement _enemyDeathJumpMovement;
+	public WhiteSpriteFlash _whiteSpriteFlash;
 
 	private float _health;
 
@@ -24,7 +25,8 @@ public abstract class EnemyController : MonoBehaviour {
 		Check.Null(_damageReceiveHitDetector);
 		Check.Null(_enemyLifetimeNotifier);
 		Check.Null(_enemyDeathJumpMovement);
-		
+		Check.Null(_whiteSpriteFlash);
+
 		_enemyDeathJumpMovement.enabled = false;
 		
 		_damageReceiveHitDetector.TriggerDidEnterEvent += DamageReceiveTriggerDidEnter;
@@ -64,6 +66,7 @@ public abstract class EnemyController : MonoBehaviour {
 	void DamageReceiveTriggerDidEnter(Collider2D otherCollider) {
 		
 		if (_health > 0) {
+			_whiteSpriteFlash.Flash(0.1f);
 			Fireball fireball = otherCollider.gameObject.GetComponent<Fireball> ();
 			ApplyDamage (fireball._damage, new Vector2 ((otherCollider.transform.position - transform.position).x < 0 ? 1 : -1, 1));
 		}

@@ -14,12 +14,13 @@ public class AltarManager : Singleton<AltarManager> {
 	}
 
 	public event Action CardHasSpawnedOnAltarEvent;
+	public event Action CardWasPickedFromAltarEvent;
 
 	private Altar _altarWithCard;
 
 	void Start() {
 
-		SpawnCardOnRandomAltar();
+		SpawnCardOnRandomAltarDifferentFromAltar(null);
 	}
 	
 	public void RegisterAltar(Altar altar) {
@@ -28,11 +29,23 @@ public class AltarManager : Singleton<AltarManager> {
 			_altars = new List<Altar>();
 		}
 		_altars.Add(altar);
+
+		altar.CardWasPickedUpEvent += () => {
+			if (CardWasPickedFromAltarEvent != null) {
+				CardWasPickedFromAltarEvent();
+			}
+			SpawnCardOnRandomAltarDifferentFromAltar(altar);
+		};
 	}
 
-	public void SpawnCardOnRandomAltar() {
+	public void SpawnCardOnRandomAltarDifferentFromAltar(Altar altar) {
 
-		_altarWithCard = _altars[UnityEngine.Random.Range(0, _altars.Count)];
+		Altar newAltar;
+		do {
+			newAltar = _altars[UnityEngine.Random.Range(0, _altars.Count)];
+		} while (newAltar == altar);
+
+		_altarWithCard = newAltar;
 		_altarWithCard.HasCard = true;
 
 		if (CardHasSpawnedOnAltarEvent != null) {
