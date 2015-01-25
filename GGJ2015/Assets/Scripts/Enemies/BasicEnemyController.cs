@@ -67,7 +67,9 @@ public class BasicEnemyController : EnemyController {
 		_basicMovement.enabled = true;
 		_basicMovementCheck.enabled = true;
 		_enemyDeathJumpMovement.enabled = false;
+		_health = _maxHealth;
 
+		_basicMovementCheck.StartWorking();
 		_enemyLifetimeNotifier.EnemyDidSpawn();
 	}
 
@@ -75,6 +77,12 @@ public class BasicEnemyController : EnemyController {
 
 		_health -= damageAmount;
 		if (_health <= 0) {
+			_enemySleepCheck.enabled = false;
+			_basicMovement.enabled = false;
+			_basicMovementCheck.enabled = false;
+			_enemyDeathJumpMovement.enabled = true;
+			_enemyDeathJumpMovement.JumpWithDirection (damageForceDirection);
+
 			StartCoroutine(PrepareForDeath(damageForceDirection));
 		}
 	}
@@ -88,12 +96,6 @@ public class BasicEnemyController : EnemyController {
 	}
 
 	IEnumerator PrepareForDeath(Vector2 deathForceDirection) {
-
-		_enemySleepCheck.enabled = false;
-		_basicMovement.enabled = false;
-		_basicMovementCheck.enabled = false;
-		_enemyDeathJumpMovement.enabled = true;
-		_enemyDeathJumpMovement.JumpWithDirection (deathForceDirection);
 
 		yield return new WaitForSeconds(0.5f);
 
