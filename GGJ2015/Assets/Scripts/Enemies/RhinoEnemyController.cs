@@ -56,8 +56,6 @@ public class RhinoEnemyController : EnemyController {
 
 	void MovementToPlayer() {
 
-		Debug.Log("movement");
-
 		if (_enemySeePlayerCheck.IsPlayerVisibleHorizontal) {
 			_basicMovement.Direction = _enemySeePlayerCheck.SimpleDirectionToPlayer;
 			_basicMovementCheck.Direction = _basicMovement.Direction;

@@ -51,14 +51,9 @@ public class EnemySeeHorizontalPlayerCheck : MonoBehaviour {
 	}
 
 	void UpdateDirectionToPlayer() {
-		Debug.Log(GameplayManager.Instance._playerController._playerTransform.position );
-		Debug.Log(_transform.position);
-
 
 		Vector3 direction = (GameplayManager.Instance._playerController._playerTransform.position - _transform.position);
 		_simpleDirectionToPlayer = direction.x > 0 ? DirectionClass.DirectionEnum.Right : DirectionClass.DirectionEnum.Left;
-	
-		Debug.Log(_simpleDirectionToPlayer);
 	}
 
 	void UpdateIsPlayerVisible() {
