@@ -59,3 +59,7 @@ TagManager:
     userID: 3
     uniqueID: 3657231767
     locked: 0
+  - name: Foreground
+    userID: 5
+    uniqueID: 3191559169
+    locked: 0

@@ -17,7 +17,7 @@ public class Altar : MonoBehaviour {
 
 	private bool _hasCard;
 
-	void Start () {
+	void OnEnable () {
 
 		Check.Null(_cardOnAltar);
 

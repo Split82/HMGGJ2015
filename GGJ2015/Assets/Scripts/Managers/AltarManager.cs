@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class AltarManager : Singleton<AltarManager> {
 
@@ -11,6 +12,8 @@ public class AltarManager : Singleton<AltarManager> {
 			return _altarWithCard;
 		}
 	}
+
+	public event Action CardHasSpawnedOnAltarEvent;
 
 	private Altar _altarWithCard;
 
@@ -30,8 +33,12 @@ public class AltarManager : Singleton<AltarManager> {
 
 	public void SpawnCardOnRandomAltar() {
 
-		_altarWithCard = _altars[Random.Range(0, _altars.Count)];
+		_altarWithCard = _altars[UnityEngine.Random.Range(0, _altars.Count)];
 		_altarWithCard.HasCard = true;
+
+		if (CardHasSpawnedOnAltarEvent != null) {
+			CardHasSpawnedOnAltarEvent();
+		}
 	}
 
 }
