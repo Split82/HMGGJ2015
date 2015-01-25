@@ -131,9 +131,11 @@ GameObject:
   - 114: {fileID: 11492756}
   - 114: {fileID: 11401102}
   - 114: {fileID: 11490180}
+  - 114: {fileID: 11422348}
+  - 114: {fileID: 11481780}
   m_Layer: 10
   m_Name: RhinoEnemy
-  m_TagString: Untagged
+  m_TagString: RhinoEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .479999989, y: -.629999995, z: 0}
+  m_LocalPosition: {x: .540000021, y: -.629999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 492756}
@@ -207,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .579999983, y: 0, z: 0}
+  m_LocalPosition: {x: .620000005, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 492756}
@@ -220,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 192764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 463104}
   - {fileID: 477186}
@@ -233,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.95271778, y: 7.3834815, z: 0}
+  m_LocalPosition: {x: -1.54049277, y: -12.1859312, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 492760}
@@ -298,7 +300,7 @@ Animator:
   m_GameObject: {fileID: 192764}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 33e97f283f37b40478dc80a5012e710c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 25ee81cc134e84a918dc7f6906fbadaa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -318,6 +320,19 @@ MonoBehaviour:
   _playerLayerMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &11422348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea0f3f58bd644fdd8b9721f8d390077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForceMul: 7
+  _deccelerationMul: .899999976
 --- !u!114 &11463104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,6 +355,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade6206f82e5644229ba0bc672e1ba90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11481780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0787a268323b400993bf7a143a729a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderers:
+  - {fileID: 21292756}
+  _whiteMaterial: {fileID: 2100000, guid: 735ce3685977f4dc5ad2b7f3521e8785, type: 2}
+  _defaultMaterial: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &11490180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,12 +392,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5744e54ef2602469a839bf7c5b9e0775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemySleepCheck: {fileID: 11492772}
+  _maxHealth: 1
+  _damageReceiveHitDetector: {fileID: 11477186}
+  _enemyLifetimeNotifier: {fileID: 11490180}
+  _enemyDeathJumpMovement: {fileID: 11422348}
+  _whiteSpriteFlash: {fileID: 11481780}
   _basicMovement: {fileID: 11492770}
   _basicMovementCheck: {fileID: 11492760}
-  _enemySleepCheck: {fileID: 11492772}
   _enemySeePlayerCheck: {fileID: 11401102}
-  _maxHealth: 0
-  _damageReceiveHitDetector: {fileID: 11477186}
 --- !u!114 &11492760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -485,7 +518,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6a806a9c97a7b441189eb78f6d87e505, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

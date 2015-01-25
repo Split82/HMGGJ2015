@@ -98,6 +98,7 @@ GameObject:
   - 114: {fileID: 11447372}
   - 114: {fileID: 11483758}
   - 114: {fileID: 11404908}
+  - 114: {fileID: 11471704}
   m_Layer: 10
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -227,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.55402672, y: 3.6995852, z: 0}
+  m_LocalPosition: {x: -3.50764251, y: -11.1770668, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435524}
@@ -393,13 +394,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69853747f76a548f9a2c62df9306a10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _basicMovement: {fileID: 11419736}
-  _basicMovementCheck: {fileID: 11419740}
   _enemySleepCheck: {fileID: 11421194}
-  _maxHealth: 1
+  _maxHealth: 10
   _damageReceiveHitDetector: {fileID: 11411634}
   _enemyLifetimeNotifier: {fileID: 11483758}
   _enemyDeathJumpMovement: {fileID: 11404908}
+  _whiteSpriteFlash: {fileID: 11471704}
+  _basicMovement: {fileID: 11419736}
+  _basicMovementCheck: {fileID: 11419740}
 --- !u!114 &11419740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,6 +485,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 9595828}
   _faceDirection: {fileID: 11447372}
+--- !u!114 &11471704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0787a268323b400993bf7a143a729a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderers:
+  - {fileID: 21219746}
+  _whiteMaterial: {fileID: 2100000, guid: 735ce3685977f4dc5ad2b7f3521e8785, type: 2}
+  _defaultMaterial: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &11483758
 MonoBehaviour:
   m_ObjectHideFlags: 1

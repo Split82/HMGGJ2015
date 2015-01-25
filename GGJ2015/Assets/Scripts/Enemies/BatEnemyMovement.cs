@@ -42,19 +42,6 @@ public class BatEnemyMovement : MonoBehaviour {
 	void Start() {
 		
 		_rigidBody2D = GetComponent<Rigidbody2D>();
-
-		StartCoroutine(AttackPositionUpdate());
-	}
-
-	IEnumerator AttackPositionUpdate() {
-
-		while (true) {
-
-			if (_state == BatEnemyStateEnum.Follow) {
-				_attackLocation = GameplayManager.Instance._playerController._playerTransform.position;
-			}
-			yield return new WaitForSeconds(_checkInterval);
-		}
 	}
 
 
