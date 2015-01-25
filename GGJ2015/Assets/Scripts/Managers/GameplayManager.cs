@@ -40,6 +40,11 @@ public class GameplayManager : Singleton<GameplayManager> {
 				});
 			}
 		};
+
+		_cardsHandManager.CardWasChosenEvent += (CardsProperties.Card card) => {
+			TraitsManager.Instance.AddTrait(card.pos.id);
+			TraitsManager.Instance.AddTrait(card.neg.id);
+		};
 	}
 
 	void Start() {
@@ -71,7 +76,7 @@ public class GameplayManager : Singleton<GameplayManager> {
 
 			_timeTillNextCardPick = 0.0f;
 
-			if (_cardsHandManager.NumberOfCardsInHand == 0) {
+			if (_cardsHandManager.NumberOfCardsInHand <= 1) {
 				Time.timeScale = 0.0f;
 				_cardsHandManager.PresentGameOver(() => {
 					Time.timeScale = 1.0f;

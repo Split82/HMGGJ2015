@@ -9,8 +9,26 @@ public class CardViewController : MonoBehaviour {
 	public Image _overlayImage;
 	public Text _topText;
 	public Text _bottomText;
+	public Text _posText;
+	public Text _negText;
 	public Image _image0;
 	public Image _image1;
+
+	public CardsProperties.Card CurrentCard {
+		get {
+			return _currentCard;
+		}
+		set {
+			_currentCard = value;
+			_topText.text = _currentCard.pos.text;
+			_bottomText.text = _currentCard.neg.text;
+			_posText.text = _currentCard.pos.id;
+			_negText.text = _currentCard.neg.id;
+			_image0.sprite = _currentCard.pos.icon;
+			_image1.sprite = _currentCard.neg.icon;
+		}
+	}
+	
 
 	public bool Highlighted {
 
@@ -24,6 +42,7 @@ public class CardViewController : MonoBehaviour {
 	}
 
 	private bool _highlighted;
+	private CardsProperties.Card _currentCard;
 
 	void Awake() {
 
@@ -32,6 +51,8 @@ public class CardViewController : MonoBehaviour {
 		Check.Null(_overlayImage);
 		Check.Null(_topText);
 		Check.Null(_bottomText);
+		Check.Null(_posText);
+		Check.Null(_negText);
 		Check.Null(_image0);
 		Check.Null(_image1);
 	}
