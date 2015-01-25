@@ -15,7 +15,6 @@ public class StayForeverCamera : MonoBehaviour {
 		_numberOfRenderedFrames++;
 		
 		if (_numberOfRenderedFrames > 2) {
-			Debug.Log ("asdasd");
 			camera.clearFlags = CameraClearFlags.Depth;
 			enabled = false;
 		}

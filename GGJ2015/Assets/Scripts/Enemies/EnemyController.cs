@@ -11,7 +11,7 @@ public abstract class EnemyController : MonoBehaviour {
 	public WhiteSpriteFlash _whiteSpriteFlash;
 	public GameObject _enemySprite;
 
-	private float _health;
+	public float _health;
 
 	public abstract void PrepareForSpawn();
 	protected abstract void PrepareForSleep();
