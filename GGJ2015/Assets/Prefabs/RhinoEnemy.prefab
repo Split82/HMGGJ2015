@@ -133,7 +133,7 @@ GameObject:
   - 114: {fileID: 11490180}
   m_Layer: 10
   m_Name: RhinoEnemy
-  m_TagString: Untagged
+  m_TagString: RhinoEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

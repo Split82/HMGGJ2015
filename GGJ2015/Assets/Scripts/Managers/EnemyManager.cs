@@ -6,6 +6,8 @@ public class EnemyManager : Singleton<EnemyManager> {
 
 	public GameObject _basicEmenyPrefab;
 	public GameObject _rhinoEmenyPrefab;
+	public GameObject _batEmenyPrefab;
+	public GameObject _crabEmenyPrefab;
 
 	public int EnemyCount {
 		get {
@@ -22,6 +24,8 @@ public class EnemyManager : Singleton<EnemyManager> {
 		_enemies = new List<GameObject> ();
 		_basicEmenyPrefab.CreatePool(10);
 		_rhinoEmenyPrefab.CreatePool(10);
+		_batEmenyPrefab.CreatePool(10);
+		_crabEmenyPrefab.CreatePool(10);
 	}
 
 	void Start () {
@@ -34,6 +38,14 @@ public class EnemyManager : Singleton<EnemyManager> {
 		switch (enemyPrefab.tag) {
 			case "RhinoEnemy" : {
 				spawPool = _rhinoEmenyPrefab;
+				break;
+			}
+			case "BatEnemy" : {
+				spawPool = _batEmenyPrefab;
+				break;
+			}
+			case "CrabEnemy" : {
+				spawPool = _crabEmenyPrefab;
 				break;
 			}
 			default:

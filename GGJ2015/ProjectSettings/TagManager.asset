@@ -4,7 +4,9 @@
 TagManager:
   tags:
   - BasicEnemy
-  - BirdEnemy
+  - RhinoEnemy
+  - BatEnemy
+  - CrabEnemy
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
