@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442094}
-  - 114: {fileID: 11442092}
   - 114: {fileID: 11442094}
   m_Layer: 0
   m_Name: Cards
@@ -29,17 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11442092
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9359c662933f4d8caffb8c8a30ad8fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11442094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,8 +39,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b6f95cf29f5459daab4eb552cca47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posTraitProperties: []
-  negTraitProperties: []
+  posTraitProperties:
+  - id: FARU
+    icon: {fileID: 21300000, guid: 9854f6b73886e400cae9af09d0608e0f, type: 3}
+    text: Gains the ability to fly.
+  - id: PIRA
+    icon: {fileID: 21300000, guid: 9dd981b117b9c47ea9b75d10735a4c75, type: 3}
+    text: Shoot through shields.
+  - id: NOHA
+    icon: {fileID: 21300000, guid: 63ea4f8c5e2ce4eeb8b93b49b742c37a, type: 3}
+    text: Enemies move slower.
+  - id: KOHU
+    icon: {fileID: 21300000, guid: 729d94efbb17d466e99de55347b64e69, type: 3}
+    text: 'Shoots in both directions. '
+  - id: QEDI
+    icon: {fileID: 21300000, guid: 19b9fcffb20bb401ebe05e3fff9c0be7, type: 3}
+    text: Shoot through walls.
+  - id: AZAN
+    icon: {fileID: 21300000, guid: 365aa63601f634ceea8cc295c3534033, type: 3}
+    text: Shoots twice as many bullets.
+  - id: KVEP
+    icon: {fileID: 21300000, guid: 7c7848a26604246818ad3676132132fc, type: 3}
+    text: Spawns less enemies.
+  - id: OKO
+    icon: {fileID: 21300000, guid: 44d117bd5b0c448af967cc2559796b92, type: 3}
+    text: You see further.
+  negTraitProperties:
+  - id: BLUR
+    icon: {fileID: 21300000, guid: 0870aa04b9bb340d183d5403392d3c02, type: 3}
+    text: Blurs the screen.
+  - id: OPPO
+    icon: {fileID: 21300000, guid: 901ca1f900dd74fa69edc67fbfe76486, type: 3}
+    text: Game is faster.
+  - id: WOTA
+    icon: {fileID: 21300000, guid: b4a33c9ea470e47c3bb015b9dfd1e326, type: 3}
+    text: Enemies are harder to kill.
+  - id: KLOK
+    icon: {fileID: 21300000, guid: febf56d852e9141c9b8f0ea42d1acb60, type: 3}
+    text: Game turns into grayscale.
+  - id: NOGO
+    icon: {fileID: 21300000, guid: 30867954b53424a37ab87c1d0f3da26b, type: 3}
+    text: Loses doublejump.
+  - id: BARM
+    icon: {fileID: 21300000, guid: 0870aa04b9bb340d183d5403392d3c02, type: 3}
+    text: Blurs the screen.
+  - id: AKUP
+    icon: {fileID: 21300000, guid: f228530664ac94765aff2f3ab52966cf, type: 3}
+    text: Disorts the screen.
+  - id: BLUR
+    icon: {fileID: 21300000, guid: 0870aa04b9bb340d183d5403392d3c02, type: 3}
+    text: Blurs the screen.
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

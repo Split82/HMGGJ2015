@@ -17,6 +17,7 @@ public class TraitsManager : Singleton<TraitsManager> {
 	}
 
 	public void AddTrait(string trait) {
+		trait = trait.ToUpper();
 
 		if (!_activeTraits.ContainsKey(trait)) {
 			_activeTraits[trait] = 0;
