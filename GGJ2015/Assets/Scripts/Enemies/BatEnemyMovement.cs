@@ -11,28 +11,39 @@ public class BatEnemyMovement : MonoBehaviour {
 	public float _followSpeed = 10f;
 	public float _attackSpeed = 50f;
 	public float _waitDistance = 50f;
-	public float _waitInterval = 1f;
 
 	public enum BatEnemyStateEnum {
 		Follow,
-		Wait,
 		Attack
 	}
 
 	private Vector2 _attackLocation;
 
-	public BatEnemyStateEnum _state = BatEnemyStateEnum.Wait;
+	public BatEnemyStateEnum _state = BatEnemyStateEnum.Follow;
+
+	public BatEnemyStateEnum State {
+		get {
+			return _state;
+		}
+		set {
+			_state = value;
+		}
+	}
+
+	public Vector2 AttackLocation {
+		get {
+			return _attackLocation;
+		}
+		set {
+			_attackLocation = value;
+		}
+	}
 
 	void Start() {
 		
 		_rigidBody2D = GetComponent<Rigidbody2D>();
 
 		StartCoroutine(AttackPositionUpdate());
-		StartCoroutine(ChangeState());
-	}
-
-	Vector2 dirrectionTo(Vector2 location) {
-		return (location - new Vector2(_rigidBody2D.transform.position.x, _rigidBody2D.transform.position.y));
 	}
 
 	IEnumerator AttackPositionUpdate() {
@@ -46,32 +57,12 @@ public class BatEnemyMovement : MonoBehaviour {
 		}
 	}
 
-	IEnumerator ChangeState() {
 
-		while (true) {
-			if (_state == BatEnemyStateEnum.Follow && dirrectionTo(_attackLocation).magnitude < _waitDistance) {
-				_state = BatEnemyStateEnum.Wait;
-				yield return new WaitForSeconds(_waitInterval);
-				_state = BatEnemyStateEnum.Attack;
-				yield return new WaitForSeconds(_checkInterval);
-			}
-			if (_state == BatEnemyStateEnum.Attack && dirrectionTo(_attackLocation).magnitude < 0.1) {
-				_state = BatEnemyStateEnum.Follow;
-				yield return new WaitForSeconds(_checkInterval);
-			}
-
-			yield return new WaitForSeconds(_checkInterval);
-		}
-	}
-	
 	void FixedUpdate() {
 
 		switch (_state) {
 		case BatEnemyStateEnum.Follow:
 			FollowUpdate();
-			break;
-		case BatEnemyStateEnum.Wait:
-			WaitUpdate();
 			break;
 		case BatEnemyStateEnum.Attack:
 			AttackUpdate();
@@ -81,17 +72,15 @@ public class BatEnemyMovement : MonoBehaviour {
 
 	void FollowUpdate() {
 
-		_rigidBody2D.velocity = dirrectionTo(_attackLocation).normalized * _followSpeed * Time.fixedDeltaTime;		
+		Vector2 direction = (_attackLocation - new Vector2(_rigidBody2D.transform.position.x, _rigidBody2D.transform.position.y));
+		_rigidBody2D.velocity = direction.normalized * _followSpeed * Time.fixedDeltaTime;		
 	}
 
-	void WaitUpdate() {
-
-		_rigidBody2D.velocity = Vector2.zero;	
-	}
 
 	void AttackUpdate() {
-		
-		_rigidBody2D.velocity = dirrectionTo(_attackLocation).normalized * _attackSpeed * Time.fixedDeltaTime;	
+
+		Vector2 direction = (_attackLocation - new Vector2(_rigidBody2D.transform.position.x, _rigidBody2D.transform.position.y));		                   
+		_rigidBody2D.velocity = direction.normalized * _attackSpeed * Time.fixedDeltaTime;	
 	}
 
 	public void Stop() {
