@@ -17,7 +17,7 @@ public class SoundManager : Singleton<SoundManager> {
 	}
 
 	public void PlayJump() {
-		_audioSource.PlayOneShot(_soundJump, 1.0f);
+		_audioSource.PlayOneShot(_soundJump, 0.2f);
 	}
 
 	public void PlayPickup() {
