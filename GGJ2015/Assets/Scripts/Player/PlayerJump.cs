@@ -63,6 +63,7 @@ public class PlayerJump : MonoBehaviour {
 			// Start of the jump or second jump
 			if (_didReleaseJumpButton && _numberOfJumpsSinceGrounded < GameTraits.Instance.numberOfJumps) {
 
+				SoundManager.Instance.PlayJump();
 				if (PlayerDidJumpEvent != null) {
 					PlayerDidJumpEvent(_numberOfJumpsSinceGrounded);
 				}
@@ -95,6 +96,7 @@ public class PlayerJump : MonoBehaviour {
 
 	public void ForcedJump() {
 
+		SoundManager.Instance.PlayJump();
 		if (PlayerDidJumpEvent != null) {
 			PlayerDidJumpEvent(0);
 		}

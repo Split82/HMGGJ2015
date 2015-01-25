@@ -34,6 +34,7 @@ public class AltarManager : Singleton<AltarManager> {
 			if (CardWasPickedFromAltarEvent != null) {
 				CardWasPickedFromAltarEvent();
 			}
+			SoundManager.Instance.PlayPickup();
 			SpawnCardOnRandomAltarDifferentFromAltar(altar);
 		};
 	}

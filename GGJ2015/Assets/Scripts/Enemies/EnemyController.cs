@@ -56,7 +56,8 @@ public abstract class EnemyController : MonoBehaviour {
 	}
 	
 	void ApplyDamage(float damageAmount, Vector2 damageForceDirection) {
-		
+
+		SoundManager.Instance.PlayHit ();
 		_health -= damageAmount * GameTraits.Instance.damageMultiplier;
 		if (_health <= 0) {
 			PrepareForDeathJump();
