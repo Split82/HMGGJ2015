@@ -30,7 +30,7 @@ public class RectMoveAnimator : MonoBehaviour {
 			_rectTransform.localPosition = Vector3.Lerp(startPos, pos, _animationCurve.Evaluate(elapsedTime / duration));
 
 			yield return new WaitForEndOfFrame();
-			elapsedTime += Time.deltaTime;
+			elapsedTime += Time.unscaledDeltaTime;
 		}
 
 		_rectTransform.localPosition = pos;
