@@ -29,8 +29,10 @@ public class RopeDetector : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
-		if ((_ropeLayerMask.value & 1<<other.gameObject.layer) == 0)
+
+		if ((_ropeLayerMask.value & 1 << other.gameObject.layer) == 0) {
 			return;
+		}
 
 		if (_playerIsInsideTheRope) {
 			return;
@@ -47,8 +49,10 @@ public class RopeDetector : MonoBehaviour {
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		if ((_ropeLayerMask.value & 1<<other.gameObject.layer) == 0)
+
+		if ((_ropeLayerMask.value & 1 << other.gameObject.layer) == 0) {
 			return;
+		}
 
 		StopAllCoroutines();
 
@@ -58,14 +62,14 @@ public class RopeDetector : MonoBehaviour {
 		}
 	}
 
-	public void CanHitRopeAfterDelay() {
+	public void CanHitRopeAgainAfterDelay() {
 
-		StartCoroutine(ResetPlayerInsideTheRopeAfterDelay(0.5f));
+		StartCoroutine(ResetPlayerInsideTheRopeAfterDelay());
 	}
 
-	private IEnumerator ResetPlayerInsideTheRopeAfterDelay(float delay) {
+	private IEnumerator ResetPlayerInsideTheRopeAfterDelay() {
 
-		yield return new WaitForSeconds(delay);
+		yield return new WaitForSeconds(0.05f);
 		_playerIsInsideTheRope = false;
 	}
 }

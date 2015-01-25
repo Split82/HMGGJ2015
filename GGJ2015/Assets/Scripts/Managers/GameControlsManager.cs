@@ -9,6 +9,12 @@ public class GameControlsManager : Singleton<GameControlsManager> {
 		}
 	}
 
+	public bool JumpButtonWasPressed {
+		get {
+			return Input.GetKeyDown(KeyCode.UpArrow);
+		}
+	}
+
 	public bool DownButtonIsActive {
 		get {
 			return Input.GetKey(KeyCode.DownArrow);
