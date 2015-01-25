@@ -14,6 +14,7 @@ public class FireStaff : MonoBehaviour {
 	private GameControlsManager _gameControlsManager;
 	private Transform _transform;
 	private Vector3 _shootDirection;
+	private GlobalTraits _globalTraits;
 
 	void Awake() {
 		
@@ -22,6 +23,7 @@ public class FireStaff : MonoBehaviour {
 
 		_transform = transform;
 		_gameControlsManager = GameControlsManager.Instance;
+		_globalTraits = GlobalTraits.Instance;
 
 		_playerFaceDirection.DirectionDidChangeEvent += () => {
 
@@ -50,7 +52,7 @@ public class FireStaff : MonoBehaviour {
 	// Returns true if bullet was fired
 	public bool Fire(Vector3 pos, Vector3 direction) {
 		
-		if (_timeSinceLastShot < 1.0f / _shotsPerSecond) {
+		if (_timeSinceLastShot < 1.0f / _shotsPerSecond / (_globalTraits._doubleBullets ? 2 : 1)) {
 			return false;
 		}	
 		
@@ -59,6 +61,13 @@ public class FireStaff : MonoBehaviour {
 		Fireball bullet = _fireballPrefab.Spawn(pos);
 		SoundManager.Instance.PlayShot();
 		bullet.Fire(pos, normalizedDirection + (Vector3)Random.insideUnitCircle * _randomness, _bulletSpeed);	
+
+		if (GlobalTraits.Instance._rearGun) {
+			pos.x -= _shootDirection.x * 1.3f;
+			normalizedDirection.x = -normalizedDirection.x;
+			bullet = _fireballPrefab.Spawn(pos);
+			bullet.Fire(pos, normalizedDirection + (Vector3)Random.insideUnitCircle * _randomness, _bulletSpeed);	
+		}
 		
 		_timeSinceLastShot = 0.0f;
 		return true;

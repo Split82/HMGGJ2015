@@ -59,15 +59,17 @@ public class BatEnemyMovement : MonoBehaviour {
 
 	void FollowUpdate() {
 
+		float velMul = GlobalTraits.Instance._slowEnemies ? 0.5f : 1;
 		Vector2 direction = (_attackLocation - new Vector2(_rigidBody2D.transform.position.x, _rigidBody2D.transform.position.y));
-		_rigidBody2D.velocity = direction.normalized * _followSpeed * Time.fixedDeltaTime;		
+		_rigidBody2D.velocity = direction.normalized * _followSpeed * Time.fixedDeltaTime * velMul;		
 	}
 
 
 	void AttackUpdate() {
 
+		float velMul = GlobalTraits.Instance._slowEnemies ? 0.5f : 1;
 		Vector2 direction = (_attackLocation - new Vector2(_rigidBody2D.transform.position.x, _rigidBody2D.transform.position.y));		                   
-		_rigidBody2D.velocity = direction.normalized * _attackSpeed * Time.fixedDeltaTime;	
+		_rigidBody2D.velocity = direction.normalized * _attackSpeed * Time.fixedDeltaTime * velMul;	
 	}
 
 	public void Stop() {

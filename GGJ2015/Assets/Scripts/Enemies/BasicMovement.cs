@@ -40,8 +40,9 @@ public class BasicMovement : MonoBehaviour {
 			velocity.x = 0.0f;
 		}
 
-		velocity.x = Mathf.Clamp(velocity.x, -_maxVelocity.x, _maxVelocity.x);
-		velocity.y = Mathf.Clamp(velocity.y, -_maxVelocity.y, _maxVelocity.y);
+		float velMul = GlobalTraits.Instance._slowEnemies ? 0.5f : 1;
+		velocity.x = Mathf.Clamp(velocity.x, -_maxVelocity.x * velMul, _maxVelocity.x * velMul);
+		velocity.y = Mathf.Clamp(velocity.y, -_maxVelocity.y * velMul, _maxVelocity.y * velMul);
 		
 		_rigidBody2D.velocity = velocity;
 	}

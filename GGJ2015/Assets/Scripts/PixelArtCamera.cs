@@ -9,7 +9,7 @@ public class PixelArtCamera : MonoBehaviour {
 	void Update () {
 
 		Camera selfCamera = gameObject.GetComponent<Camera> ();
-		selfCamera.fieldOfView = Mathf.Atan (((float)Screen.height / (_pixelsPerUnit * _pixelMultiplier)) / -gameObject.transform.position.z) * Mathf.Rad2Deg;
+		selfCamera.fieldOfView = Mathf.Atan (((float)Screen.height / (_pixelsPerUnit * _pixelMultiplier * (GlobalTraits.Instance._zoomOut ? 0.5f : 1))) / -gameObject.transform.position.z) * Mathf.Rad2Deg;
 
 		Vector3 camCenter = gameObject.transform.parent.position;
 		Vector3 bottomLeft = selfCamera.ViewportToWorldPoint (new Vector3 (0, 0, 10));
