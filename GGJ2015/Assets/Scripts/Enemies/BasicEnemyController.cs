@@ -11,8 +11,15 @@ public class BasicEnemyController : EnemyController {
 	public float _maxHealth;
 	public HitDetector _damageReceiveHitDetector;
 	public EnemyLifetimeNotifier _enemyLifetimeNotifier;
+	public EnemyDeathJumpMovement _enemyDeathJumpMovement;
 
 	private float _health;
+
+	public  bool IsDying {
+		get {
+			return _health <= 0;
+		}
+	}
 
 	void Awake() {
 
@@ -26,6 +33,9 @@ public class BasicEnemyController : EnemyController {
 		Check.Null(_enemySleepCheck);
 		Check.Null(_damageReceiveHitDetector);
 		Check.Null(_enemyLifetimeNotifier);
+		Check.Null (_enemyDeathJumpMovement);
+
+		_enemyDeathJumpMovement.enabled = false;
 
 		_damageReceiveHitDetector.TriggerDidEnterEvent += DamageReceiveTriggerDidEnter;
 
@@ -50,26 +60,39 @@ public class BasicEnemyController : EnemyController {
 
 	public override void PrepareForSpawn() {
 
+		_enemySleepCheck.enabled = true;
+		_basicMovement.enabled = true;
+		_basicMovementCheck.enabled = true;
+		_enemyDeathJumpMovement.enabled = false;
+
 		_enemyLifetimeNotifier.EnemyDidSpawn();
 	}
 
-	void ApplyDamage(float damageAmount) {
+	void ApplyDamage(float damageAmount, Vector2 damageForceDirection) {
 
 		_health -= damageAmount;
 		if (_health <= 0) {
-			StartCoroutine(PrepareForDeath());
+			StartCoroutine(PrepareForDeath(damageForceDirection));
 		}
 	}
 
 	void DamageReceiveTriggerDidEnter(Collider2D otherCollider) {
 
-		Fireball fireball = otherCollider.gameObject.GetComponent<Fireball>();
-		ApplyDamage (fireball._damage);
+		if (_health > 0) {
+			Fireball fireball = otherCollider.gameObject.GetComponent<Fireball> ();
+			ApplyDamage (fireball._damage, new Vector2 ((otherCollider.transform.position - transform.position).x < 0 ? 1 : -1, 1));
+		}
 	}
 
-	IEnumerator PrepareForDeath() {
-		
-		yield return new WaitForSeconds(1.5f);
+	IEnumerator PrepareForDeath(Vector2 deathForceDirection) {
+
+		_enemySleepCheck.enabled = false;
+		_basicMovement.enabled = false;
+		_basicMovementCheck.enabled = false;
+		_enemyDeathJumpMovement.enabled = true;
+		_enemyDeathJumpMovement.JumpWithDirection (deathForceDirection);
+
+		yield return new WaitForSeconds(0.5f);
 
 		_enemyLifetimeNotifier.EnemyWasKilled();
 		gameObject.Recycle();

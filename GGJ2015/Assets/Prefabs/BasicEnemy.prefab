@@ -97,6 +97,7 @@ GameObject:
   - 114: {fileID: 11419736}
   - 114: {fileID: 11447372}
   - 114: {fileID: 11483758}
+  - 114: {fileID: 11404908}
   m_Layer: 10
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -226,7 +227,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.22871447, y: 5.30829239, z: 0}
+  m_LocalPosition: {x: -1.55402672, y: 3.6995852, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435524}
@@ -344,6 +345,19 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11404908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea0f3f58bd644fdd8b9721f8d390077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForceMul: 10
+  _deccelerationMul: .899999976
 --- !u!114 &11411634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -382,9 +396,10 @@ MonoBehaviour:
   _basicMovement: {fileID: 11419736}
   _basicMovementCheck: {fileID: 11419740}
   _enemySleepCheck: {fileID: 11421194}
-  _maxHealth: 5
+  _maxHealth: 1
   _damageReceiveHitDetector: {fileID: 11411634}
   _enemyLifetimeNotifier: {fileID: 11483758}
+  _enemyDeathJumpMovement: {fileID: 11404908}
 --- !u!114 &11419740
 MonoBehaviour:
   m_ObjectHideFlags: 1
