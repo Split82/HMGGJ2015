@@ -40,6 +40,8 @@ public class EnemySpawnZone : MonoBehaviour {
 					enemyLifetimeNotifier.EnemyDidSpawnEvent += EnemyDidSpawn;
 					enemyLifetimeNotifier.EnemyWasKilledEvent += EnemyWasKilled;
 					_enemyManager.AddEnemy(enemy);
+					EnemyController enemyController = enemy.GetComponent<EnemyController>();
+					enemyController.PrepareForSpawn();
 				}
 			}
 			yield return new WaitForSeconds(spawnParams._spawnTime + Random.value * spawnParams._spawnTimeDelta);

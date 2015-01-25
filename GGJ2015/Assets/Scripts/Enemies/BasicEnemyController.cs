@@ -3,13 +3,14 @@ using System.Collections;
 
 [RequireComponent (typeof(Rigidbody2D))]
 
-public class BasicEnemyController : MonoBehaviour {
+public class BasicEnemyController : EnemyController {
 	
 	public BasicMovement _basicMovement;
 	public BasicMovementCheck _basicMovementCheck;	
 	public EnemySleepCheck _enemySleepCheck;
 	public float _maxHealth;
-	public HitDetector _fireballHitDetector;
+	public HitDetector _damageReceiveHitDetector;
+	public EnemyLifetimeNotifier _enemyLifetimeNotifier;
 
 	private float _health;
 
@@ -23,9 +24,10 @@ public class BasicEnemyController : MonoBehaviour {
 		Check.Null(_basicMovement);
 		Check.Null(_basicMovementCheck);
 		Check.Null(_enemySleepCheck);
-		Check.Null(_fireballHitDetector);
+		Check.Null(_damageReceiveHitDetector);
+		Check.Null(_enemyLifetimeNotifier);
 
-		_fireballHitDetector.TriggerDidEnterEvent += FireballTriggerDidEnter;
+		_damageReceiveHitDetector.TriggerDidEnterEvent += DamageReceiveTriggerDidEnter;
 
 		_basicMovementCheck.CanNotMoveInTheSameDirectionEvent += () => {
 			_basicMovement.Direction = DirectionClass.Opposite(_basicMovement.Direction);
@@ -46,17 +48,30 @@ public class BasicEnemyController : MonoBehaviour {
 		};
 	}
 
+	public override void PrepareForSpawn() {
+
+		_enemyLifetimeNotifier.EnemyDidSpawn();
+	}
+
 	void ApplyDamage(float damageAmount) {
 
 		_health -= damageAmount;
 		if (_health <= 0) {
-			gameObject.Recycle();
+			StartCoroutine(PrepareForDeath());
 		}
 	}
 
-	void FireballTriggerDidEnter(Collider2D otherCollider) {
+	void DamageReceiveTriggerDidEnter(Collider2D otherCollider) {
 
 		Fireball fireball = otherCollider.gameObject.GetComponent<Fireball>();
 		ApplyDamage (fireball._damage);
+	}
+
+	IEnumerator PrepareForDeath() {
+		
+		yield return new WaitForSeconds(1.5f);
+
+		_enemyLifetimeNotifier.EnemyWasKilled();
+		gameObject.Recycle();
 	}
 }

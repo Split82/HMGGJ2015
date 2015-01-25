@@ -25,8 +25,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 416054}
   - 212: {fileID: 21216060}
-  - 95: {fileID: 9516060}
-  - 114: {fileID: 11416048}
   m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
@@ -42,11 +40,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416056}
-  - 50: {fileID: 5016060}
   - 114: {fileID: 11416056}
-  - 114: {fileID: 11416052}
-  - 114: {fileID: 11416054}
-  - 114: {fileID: 11416050}
+  - 114: {fileID: 11437822}
+  - 114: {fileID: 11437820}
+  - 50: {fileID: 5037820}
   m_Layer: 10
   m_Name: BatEnemy
   m_TagString: Untagged
@@ -119,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.91228819, y: 1, z: 0}
+  m_LocalPosition: {x: -3.81999993, y: 3.25200009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416052}
@@ -152,7 +149,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 416056}
   m_RootOrder: 3
---- !u!50 &5016060
+--- !u!50 &5037820
 Rigidbody2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -161,12 +158,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 5
-  m_FixedAngle: 1
+  m_GravityScale: 0
+  m_FixedAngle: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!58 &5816060
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -175,7 +172,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 116052}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e595af9d00318406cb13a673eaa95316, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Radius: .200000003
   m_Center: {x: 0, y: 0}
 --- !u!61 &6116058
@@ -200,74 +197,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .5, y: .5}
   m_Center: {x: 0, y: 0}
---- !u!95 &9516060
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116054}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 33e97f283f37b40478dc80a5012e710c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11416048
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82a8c99dce1c44e869b8a05cd6cfd6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 9516060}
-  _faceDirection: {fileID: 11416050}
---- !u!114 &11416050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea80af0f8edfe4905b69b98e9c2e9f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11416052
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69853747f76a548f9a2c62df9306a10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _basicMovement: {fileID: 11416054}
-  _basicMovementCheck: {fileID: 0}
-  _enemySleepCheck: {fileID: 11416056}
-  _maxHealth: 0
-  _fireballHitDetector: {fileID: 11416060}
---- !u!114 &11416054
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90f6a20ee2d404312a6b8465ddc8bd2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 200
-  _maxVelocity: {x: 3, y: 10}
 --- !u!114 &11416056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,6 +232,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade6206f82e5644229ba0bc672e1ba90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11437820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c436ae84146e4719a739505215bf2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkInterval: .100000001
+  _followSpeed: 50
+  _attackSpeed: 500
+  _waitDistance: 2
+  _waitInterval: .400000006
+  _state: 0
+--- !u!114 &11437822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82637293cea31453488048f2d800bdc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _batMovement: {fileID: 11437820}
 --- !u!212 &21216060
 SpriteRenderer:
   m_ObjectHideFlags: 1
