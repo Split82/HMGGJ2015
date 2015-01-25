@@ -17,7 +17,6 @@ public class BatEnemyMovementController : MonoBehaviour {
 		while (true) {
 			
 			_batEnemyMovement.AttackLocation = GameplayManager.Instance._playerController._playerTransform.position;
-			Debug.Log(_batEnemyMovement.AttackLocation);
 
 			yield return new WaitForSeconds(_checkInterval);
 		}
