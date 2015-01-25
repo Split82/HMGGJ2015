@@ -177,6 +177,7 @@ public class CardsHandManager : Singleton<CardsHandManager> {
 			yield return null;
 		}
 
+		SoundManager.Instance.PlaySelect();
 		if (CardWasChosenEvent != null) {
 			CardWasChosenEvent(_cardViewControllers[highlightedCardIdx].CurrentCard);
 		}
