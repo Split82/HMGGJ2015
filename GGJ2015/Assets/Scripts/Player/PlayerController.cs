@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour {
 				State = StateEnum.OnTheRope;
 			}
 			else {
-				_ropeDetector.CanHitRopeAfterDelay();
+				_ropeDetector.CanHitRopeAgainAfterDelay();
 			}
 		};
 
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
 		};	
 
 		_playerRopeMovement.PlayerDidExitRopeWithJumpEvent += (bool jump) => {
-			_ropeDetector.CanHitRopeAfterDelay();
+			_ropeDetector.CanHitRopeAgainAfterDelay();
 			State = StateEnum.Playing;
 			if (jump) {
 				_playerJump.ForcedJump();
