@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent (typeof(Rigidbody2D))]
 
 public class BasicEnemyController : EnemyController {
-	
+
+	public event Action EnemyDidDieEvent;
+
 	public BasicMovement _basicMovement;
 	public BasicMovementCheck _basicMovementCheck;	
 	public EnemySleepCheck _enemySleepCheck;
