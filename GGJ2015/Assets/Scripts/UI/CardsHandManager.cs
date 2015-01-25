@@ -22,7 +22,7 @@ public class CardsHandManager : MonoBehaviour {
 		Check.Null(_cardPrefab);
 
 		SpawnRandomCards();
-		LayoutCardsForIdle();
+		LayoutCardsForIdleWithoutAnimation();
 	}
 
 	private CardViewController CreateNewCard() {
@@ -40,6 +40,15 @@ public class CardsHandManager : MonoBehaviour {
 			CardViewController cardViewController = CreateNewCard();
 			_cardViewControllers.Add(cardViewController);
 			cardViewController._rectTransform.localPosition = _startPosition;
+		}
+	}
+
+	private void LayoutCardsForIdleWithoutAnimation() {
+
+		for (int i = 0; i < _cardViewControllers.Count; i++) {
+			
+			Vector3 pos = _cardSlotsRectTransforms[i].localPosition + _idleCardsOffset;
+			_cardViewControllers[i]._rectTransform.localPosition = pos;
 		}
 	}
 

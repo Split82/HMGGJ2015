@@ -15,6 +15,7 @@ public class PlayerAnimatorController : MonoBehaviour {
 	private int _leftAnimatorParam;
 	private int _onTheRopeAnimatorParam;
 	private int _climbingAnimatorParam;
+	private int _invincibleAnimatorParam;
 	
 	void Start () {
 
@@ -30,6 +31,7 @@ public class PlayerAnimatorController : MonoBehaviour {
 		_leftAnimatorParam = Animator.StringToHash("Left");
 		_onTheRopeAnimatorParam = Animator.StringToHash("OnTheRope");
 		_climbingAnimatorParam = Animator.StringToHash("Climbing");
+		_invincibleAnimatorParam = Animator.StringToHash("Invincible");
 	}
 
 	void Update () {
@@ -39,5 +41,6 @@ public class PlayerAnimatorController : MonoBehaviour {
 		_animator.SetBool(_movingAnimatorParam, _playerMovement.IsRunning);
 		_animator.SetBool(_onTheRopeAnimatorParam, _playerController.State == PlayerController.StateEnum.OnTheRope);
 		_animator.SetBool(_climbingAnimatorParam, _playerRopeMovement.IsClimbing);
+		_animator.SetBool(_invincibleAnimatorParam, _playerController.Invincible);
 	}
 }

@@ -13,7 +13,16 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask _enemyDealDamageLayerMask;
 	public LayerMask _enemyBulletLayerMask;
 	public GroundedCheck _groundedCheck;
+	public HitDetector _receiveDamageHitDetector;
+	public float _invincibilityAfterHitDuration = 2.0f;
 
+	public bool Invincible {
+		get {
+			return _invincible;
+		}
+	}
+
+	public event System.Action PlayerWasHitEvent;
 
 	public enum StateEnum {
 		Undefined,
@@ -56,9 +65,8 @@ public class PlayerController : MonoBehaviour {
 
 	private StateEnum _state;
 	private float _defaultGravityScale;
-
-	public HitDetector _receiveDamageHitDetector;
-
+	private bool _invincible;
+	
 	void Awake() {
 
 		_defaultGravityScale = _rigidbody2D.gravityScale;
@@ -102,13 +110,31 @@ public class PlayerController : MonoBehaviour {
 		_receiveDamageHitDetector.TriggerDidEnterEvent += ReceiveDamageTriggerDidEnter;
 	}
 
-	void ReceiveDamageTriggerDidEnter(Collider2D otherCollider) {
+	private void ReceiveDamageTriggerDidEnter(Collider2D otherCollider) {
+
+		if (_invincible) {
+			return;
+		}
 
 		if ((1 << otherCollider.gameObject.layer & _enemyDealDamageLayerMask) != 0) {
+
 			Vector3 dir = _rigidbody2D.transform.position - otherCollider.transform.position;
-			_rigidbody2D.velocity += new Vector2(dir.x > 0 ? 1 : -1 , 5);
+			_rigidbody2D.velocity += new Vector2(dir.x > 0 ? 20 : -20 , 5);
+
+			if (PlayerWasHitEvent != null) {
+				PlayerWasHitEvent();
+			}
+
+			_invincible = true;
+			StartCoroutine(CancelInvincibilityAfterDelay(_invincibilityAfterHitDuration));
 		}
-		else if ((1 << otherCollider.gameObject.layer & _enemyBulletLayerMask) != 0) {
-		}
+//		else if ((1 << otherCollider.gameObject.layer & _enemyBulletLayerMask) != 0) {
+//		}
+	}
+
+	private IEnumerator CancelInvincibilityAfterDelay(float delay) {
+
+		yield return new WaitForSeconds(delay);
+		_invincible = false;
 	}
 }
