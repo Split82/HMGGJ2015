@@ -9,8 +9,9 @@ public abstract class EnemyController : MonoBehaviour {
 	public EnemyLifetimeNotifier _enemyLifetimeNotifier;
 	public EnemyDeathJumpMovement _enemyDeathJumpMovement;
 	public WhiteSpriteFlash _whiteSpriteFlash;
+	public GameObject _enemySprite;
 
-	private float _health;
+	public float _health;
 
 	public abstract void PrepareForSpawn();
 	protected abstract void PrepareForSleep();
@@ -77,6 +78,9 @@ public abstract class EnemyController : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		
 		_enemyLifetimeNotifier.EnemyWasKilled();
-		gameObject.Recycle();
+
+		StayForeverManager.Instance.StayForever(new GameObject[1] {_enemySprite}, () => {
+			gameObject.Recycle();
+		});
 	}
 }

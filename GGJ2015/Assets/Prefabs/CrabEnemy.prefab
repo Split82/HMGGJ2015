@@ -234,7 +234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.53945303, y: 2.7559855, z: 0}
+  m_LocalPosition: {x: -14.4041042, y: -5.58576441, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 402306}
@@ -329,6 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 9522558}
   _faceDirection: {fileID: 11402302}
+  _enemyController: {fileID: 11402316}
 --- !u!114 &11402302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,6 +439,8 @@ MonoBehaviour:
   _enemyLifetimeNotifier: {fileID: 11402306}
   _enemyDeathJumpMovement: {fileID: 11402304}
   _whiteSpriteFlash: {fileID: 11448642}
+  _enemySprite: {fileID: 102308}
+  _health: 0
   _basicMovement: {fileID: 11402318}
   _basicMovementCheck: {fileID: 11402314}
 --- !u!114 &11402318
