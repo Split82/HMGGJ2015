@@ -29,8 +29,8 @@ public class EnemySpawnZone : MonoBehaviour {
 
 	IEnumerator SpawnGroup(int groupIndex) {
 
-		Vector3 playerPos = GameplayManager.Instance._playerController._playerTransform.position;
 		while (_enemyGroupsSpawnParams.Length > groupIndex &&  _enemySpawnZoneRects.Length > 0) {
+			Vector3 playerPos = GameplayManager.Instance._playerController._playerTransform.position;
 			Rect spawnRect = _enemySpawnZoneRects[Random.Range(0, _enemySpawnZoneRects.Length)];
 			EnemyGroupSpawnParams spawnParams = _enemyGroupsSpawnParams[groupIndex];
 			if (CanSpawnEnemies(spawnParams._enemyPrefabs.Length)) {
