@@ -11,9 +11,7 @@
          
          ZWrite Off  
 		 Blend DstColor SrcAlpha
-		 ZTest Greater
-		 Offset 100, 100		 
-                
+
          CGPROGRAM
  
          #pragma vertex vert  

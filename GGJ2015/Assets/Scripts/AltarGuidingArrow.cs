@@ -8,6 +8,7 @@ public class AltarGuidingArrow : MonoBehaviour {
 	public float _radius = 0.8f;	
 	public float _minVisibleDistance = 10.0f;
 	public float _fadeOutDistance = 20.0f;
+	public Color _color = Color.white;
 
 	private Transform _altarWithCardTransform;
 	private Transform _transform;
@@ -43,7 +44,9 @@ public class AltarGuidingArrow : MonoBehaviour {
 
 		float distance = Mathf.Sqrt(sqrDistance);
 
-		_arrowSpriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Clamp01((distance - _minVisibleDistance) / (_fadeOutDistance - _minVisibleDistance)));
+		Color color = _color;
+		color.a *= Mathf.Clamp01((distance - _minVisibleDistance) / (_fadeOutDistance - _minVisibleDistance));
+		_arrowSpriteRenderer.color = color;
 
 		_transform.localPosition = _radius * altarDir / distance;
 		float angle = Vector3.Angle(Vector3.right, altarDir);
