@@ -9,11 +9,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 426068}
   - 50: {fileID: 5043308}
-  - 58: {fileID: 5843308}
+  - 61: {fileID: 6100000}
   - 95: {fileID: 9526068}
   - 212: {fileID: 21226068}
   - 114: {fileID: 11468266}
-  - 114: {fileID: 11479530}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 19
   m_Name: Fireball
   m_TagString: Untagged
@@ -44,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.51462841, y: 3.79484653, z: 0}
+  m_LocalPosition: {x: -9.35599995, y: 3.52999997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430834}
@@ -58,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 130834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 426068}
   m_RootOrder: 0
@@ -77,16 +78,16 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5843308
-CircleCollider2D:
+--- !u!61 &6100000
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126068}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Radius: .100000001
+  m_IsTrigger: 0
+  m_Size: {x: .400000006, y: .100000001}
   m_Center: {x: 0, y: 0}
 --- !u!95 &9526068
 Animator:
@@ -103,6 +104,38 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52393cb054814962af2aebff8daca82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b3365b42ff7457c8996651ba59c900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 25166336
+  _debrisPrefab: {fileID: 100000, guid: 5c07de07814474083bcbd5e33fa8263b, type: 2}
+  _count: 3
+  _countRandomness: 1
+  _speed: 3
+  _speedRandomness: 1.5
+  _angleRandomness: 60
+  _angularVelocityRandomness: 500
 --- !u!114 &11468266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,18 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _lifeTime: 1
---- !u!114 &11479530
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01829f87159c24ec9bf6d560b8d2c547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _lifeTime: 3
 --- !u!212 &21226068
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -161,7 +183,7 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2ad2057cca023431ab36937e3b25bd0a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -170,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 3657231767
   m_SortingOrder: -11
   m_Sprite: {fileID: 21300000, guid: e523c651896be410199f019ba038a2aa, type: 3}
-  m_Color: {r: 1, g: .992156863, b: .862745106, a: .309803933}
+  m_Color: {r: 1, g: 1, b: 1, a: .278431386}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

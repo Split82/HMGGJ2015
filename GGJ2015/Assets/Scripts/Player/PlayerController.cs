@@ -86,8 +86,14 @@ public class PlayerController : MonoBehaviour {
 
 		State = StateEnum.Playing;
 
-		_ropeDetector.PlayerDidEnterRopeEvent += () => {
+		// On the rope
+		_ropeDetector.PlayerDidEnterRopeEvent += (Transform ropeTransform) => {
+
 			if (!_groundedCheck.IsGrounded) {
+
+				Vector3 pos = _rigidbody2D.position;
+				pos.x = ropeTransform.position.x;
+				_rigidbody2D.position = pos;
 				State = StateEnum.OnTheRope;
 			}
 			else {
@@ -95,10 +101,12 @@ public class PlayerController : MonoBehaviour {
 			}
 		};
 
+		// Off the rope
 		_ropeDetector.PlayerDidExitRopeEvent += () => {
 			State = StateEnum.Playing;
 		};	
 
+		// Moving in the rope
 		_playerRopeMovement.PlayerDidExitRopeWithJumpEvent += (bool jump) => {
 			_ropeDetector.CanHitRopeAgainAfterDelay();
 			State = StateEnum.Playing;
@@ -116,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 			return;
 		}
 
-		if ((1 << otherCollider.gameObject.layer & _enemyDealDamageLayerMask) != 0) {
+		if ((1 << otherCollider.gameObject.layer & _enemyDealDamageLayerMask.value) != 0) {
 
 			Vector3 dir = _rigidbody2D.transform.position - otherCollider.transform.position;
 			_rigidbody2D.velocity += new Vector2(dir.x > 0 ? 20 : -20 , 5);
@@ -128,8 +136,6 @@ public class PlayerController : MonoBehaviour {
 			_invincible = true;
 			StartCoroutine(CancelInvincibilityAfterDelay(_invincibilityAfterHitDuration));
 		}
-//		else if ((1 << otherCollider.gameObject.layer & _enemyBulletLayerMask) != 0) {
-//		}
 	}
 
 	private IEnumerator CancelInvincibilityAfterDelay(float delay) {

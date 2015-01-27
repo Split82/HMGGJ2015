@@ -5,11 +5,7 @@ public class EnemyLifetimeNotifier : MonoBehaviour {
 
 	public event System.Action<EnemyLifetimeNotifier> EnemyDidSpawnEvent;
 	public event System.Action<EnemyLifetimeNotifier> EnemyWasKilledEvent;
-
-	void Start () {
 	
-	}
-
 	public void EnemyDidSpawn() {
 
 		if (EnemyDidSpawnEvent != null) {

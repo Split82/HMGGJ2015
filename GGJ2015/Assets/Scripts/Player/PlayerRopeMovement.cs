@@ -48,9 +48,6 @@ public class PlayerRopeMovement : MonoBehaviour {
 		velocity.y = Mathf.Clamp(velocity.y, -_maxVelocity, _maxVelocity);
 		
 		_rigidBody2D.velocity = velocity;
-		Vector2 pos = _rigidBody2D.position; 
-		pos.x = Mathf.Round(pos.x);
-		_rigidBody2D.position = pos;
 
 		if (_gameControlsManager.LeftButtonIsActive || _gameControlsManager.RightButtonIsActive) {
 			_exitTimer += Time.fixedDeltaTime;

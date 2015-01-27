@@ -4,7 +4,13 @@ using System;
 
 public class StayForeverManager : Singleton<StayForeverManager> {
 
-	public LayerMask _layer;
+	[LayerPropertyAttribute]
+	public int _layer;
+
+	public void StayForever(GameObject gameObject, Action finishedMethod) {
+
+		StayForever(new GameObject[] {gameObject}, finishedMethod);
+	}
 
 	public void StayForever(GameObject[] gameObjects, Action finishedMethod) {
 
@@ -12,7 +18,7 @@ public class StayForeverManager : Singleton<StayForeverManager> {
 
 		for (int i = 0; i < gameObjects.Length; i++) {
 			originalLayers[i] = gameObjects[i].layer;
-			gameObjects[i].layer = LayerMask.NameToLayer("StayForever");
+			gameObjects[i].layer = _layer;
 		}
 		StartCoroutine(StayForeverCoroutine(gameObjects, originalLayers, finishedMethod));
 	}

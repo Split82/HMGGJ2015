@@ -11,6 +11,7 @@ public class WhiteSpriteFlash : MonoBehaviour {
 
 	void Awake() {
 
+		Check.Array(_spriteRenderers, 1, false);
 		Check.Null(_whiteMaterial);
 		Check.Null(_defaultMaterial);
 		_canFlashAgain = true;

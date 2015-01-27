@@ -2,10 +2,8 @@
 using System.Collections;
 
 public class GlobalTraits : Singleton<GlobalTraits> {
-
-	public bool _shieldsOff;
+	
 	public bool _rearGun;
-	public bool _wallsOff;
 	public bool _doubleBullets;
 	public bool _lessEnemies;
 	public bool _zoomOut;
@@ -14,35 +12,27 @@ public class GlobalTraits : Singleton<GlobalTraits> {
 
 	void Start () {
 	
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("PIRA", () => {
-			_shieldsOff = true;
-		});
-
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("KOHU", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.RearGun, () => {
 			_rearGun = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("QEDI", () => {
-			_wallsOff = true;
-		});
-
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("AZAN", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.DoubleBullets, () => {
 			_doubleBullets = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("KVEP", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.LessEnemies, () => {
 			_lessEnemies = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("OKO", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.ZoomOut, () => {
 			_zoomOut = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("NOHA", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.SlowEnemies, () => {
 			_slowEnemies = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("KROX", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.MoreEnemies, () => {
 			_moreEnemies = true;
 		});
 

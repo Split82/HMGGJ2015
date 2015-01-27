@@ -5,14 +5,15 @@ public class CardsProperties : Singleton<CardsProperties> {
 
 	[System.Serializable]
 	public class TraitProperties {
+
+		public TraitsManager.Trait trait;
 		public string id;
-
 		public Sprite icon;
-
 		public string text;
 	}
 
 	public class Card {
+
 		public TraitProperties pos, neg;
 		public Card(TraitProperties pos, TraitProperties neg) {
 			this.pos = pos;
@@ -30,16 +31,17 @@ public class CardsProperties : Singleton<CardsProperties> {
 		return new Card(pos, neg);
 	}
 
-	public TraitProperties TraitForID(string traitID) {
+	public TraitProperties TraitPropertiesForTrait(TraitsManager.Trait trait) {
 
 		foreach (TraitProperties prop in posTraitProperties) {
-			if (prop.id == traitID) {
+			if (prop.trait == trait) {
 				return prop;
 			}
 		}
 
 		foreach (TraitProperties prop in negTraitProperties) {
-			if (prop.id == traitID) {
+
+			if (prop.trait == trait) {
 				return prop;
 			}
 		}

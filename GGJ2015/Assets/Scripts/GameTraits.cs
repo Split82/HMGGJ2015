@@ -10,23 +10,23 @@ public class GameTraits : Singleton<GameTraits> {
 
 	void Start () {
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("OPPO", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.FasterGame, () => {
 			Time.timeScale = 1.5f;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("WOTA", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.StrongerGun, () => {
 			damageMultiplier = 5f;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("FARU", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.UnlimitedJumps, () => {
 			numberOfJumps = int.MaxValue;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("NOGO", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.NoDoubleJump, () => {
 			numberOfJumps = 1;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("LAKK", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.SwapControls, () => {
 			swapControls = !swapControls;
 		});
 	}

@@ -5,19 +5,37 @@ using System;
 
 public class TraitsManager : Singleton<TraitsManager> {
 
-	public event Action<string> TraitWasAdded;
+	public event Action<Trait> TraitWasAdded;
+	
+	public enum Trait {
+		ShieldsOff,
+		RearGun,
+		WallsOff,
+		DoubleBullets,
+		LessEnemies,
+		ZoomOut,
+		SlowEnemies,
+		MoreEnemies,
+		FasterGame,
+		StrongerGun,
+		UnlimitedJumps,
+		NoDoubleJump,
+		SwapControls,
+		ScreenBlur,
+		ScreenTwirl,
+		ScreenGrayscale
+	};
 
-	private Dictionary<string, Action> TraitWasAddedEvent;
-	private Dictionary<string, int> _activeTraits;
+	private Dictionary<Trait, Action> TraitWasAddedEvent;
+	private Dictionary<Trait, int> _activeTraits;
 
 	void Awake () {
 
-		TraitWasAddedEvent = new Dictionary<string, Action>();
-		_activeTraits = new Dictionary<string, int>();
+		TraitWasAddedEvent = new Dictionary<Trait, Action>();
+		_activeTraits = new Dictionary<Trait, int>();
 	}
 
-	public void AddTrait(string trait) {
-		trait = trait.ToUpper();
+	public void AddTrait(Trait trait) {
 
 		if (!_activeTraits.ContainsKey(trait)) {
 			_activeTraits[trait] = 0;
@@ -37,7 +55,8 @@ public class TraitsManager : Singleton<TraitsManager> {
 		}
 	}
 
-	public void RegisterForTraitWasAddedEvent(string trait, Action action) {
+	public void RegisterForTraitWasAddedEvent(Trait trait, Action action) {
+
 		TraitWasAddedEvent[trait] = action;
 	}
 }

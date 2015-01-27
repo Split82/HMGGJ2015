@@ -8,10 +8,10 @@ public static class Check {
 			Debug.LogError("Object should not be null.");
 		}
 	}
+	
+	public static void Array(Object[] objs, int expectedCount, bool minimum) {
 
-	public static void Array(Object[] objs, int expectedCount) {
-
-		if (expectedCount > 0 && objs.Length != expectedCount) {
+		if (expectedCount > 0 && ((!minimum && objs.Length != expectedCount) || (minimum && objs.Length < expectedCount))) {
 			Debug.LogError("Array is not as long as expected.");
 			return;
 		}
@@ -24,10 +24,27 @@ public static class Check {
 			}
 		}
 	}
+
+	public static void LayerMask(LayerMask layerMask) {
+		if (layerMask.value == 0) {
+			Debug.LogError("Layer mask should not be empty.");
+		}
+	}
+
+	public static void Zero(int num) {
+		if (num == 0) {
+			Debug.LogError("This variable should not be 0.");
+		}
+	}
 }
 
 public static class ExtensionMethods
 {
+
+	public static bool ContainsLayer(this LayerMask layerMask, int layer) {
+
+		return (layerMask.value & (1 << layer)) != 0;
+	}
 
 	public static Color SaturatedColor(this Color color, float saturation) {
 

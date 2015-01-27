@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400008}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400004}
+  m_Layer: 0
+  m_Name: Traits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &133068
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,10 +30,7 @@ GameObject:
   - 114: {fileID: 11433066}
   - 114: {fileID: 11433064}
   - 114: {fileID: 11433062}
-  - 114: {fileID: 11433068}
-  - 114: {fileID: 11432834}
-  - 114: {fileID: 11414572}
-  - 114: {fileID: 11495212}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: GlobalManagers
   m_TagString: Untagged
@@ -22,6 +38,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 433068}
+  m_RootOrder: 0
 --- !u!4 &433068
 Transform:
   m_ObjectHideFlags: 1
@@ -31,15 +59,58 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 400000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11414572
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f4d9b8cfe17416dbbc77f90fbcdc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131738d7df56e42e7a7427b308e0b345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rearGun: 0
+  _doubleBullets: 0
+  _lessEnemies: 0
+  _zoomOut: 0
+  _slowEnemies: 0
+  _moreEnemies: 0
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b4cc53583434ceb8b7eaa1ad9f95ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireballLayer: 19
+  _shieldsLayer: 24
+  _wallsLayer: 9
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef08c15c45f9049949ef8a695a2d238b, type: 3}
@@ -48,25 +119,17 @@ MonoBehaviour:
   damageMultiplier: 1
   numberOfJumps: 2
   swapControls: 0
---- !u!114 &11432834
+--- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133068}
+  m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 131738d7df56e42e7a7427b308e0b345, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bef9288923b74ea08443e5bd8909ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shieldsOff: 0
-  _rearGun: 0
-  _wallsOff: 0
-  _doubleBullets: 0
-  _lessEnemies: 0
-  _zoomOut: 0
-  _slowEnemies: 0
-  _moreEnemies: 0
 --- !u!114 &11433062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
   _cardsHandManager: {fileID: 0}
-  _altarManager: {fileID: 11433068}
+  _altarManager: {fileID: 11400000}
   _cardPickTimeInterval: 30
 --- !u!114 &11433066
 MonoBehaviour:
@@ -107,28 +170,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 163de381201394723b45ef1ed4282d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11433068
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11f4d9b8cfe17416dbbc77f90fbcdc88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11495212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bef9288923b74ea08443e5bd8909ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000

@@ -73,7 +73,7 @@ public abstract class EnemyController : MonoBehaviour {
 	void DamageReceiveTriggerDidEnter(Collider2D otherCollider) {
 		
 		if (_health > 0) {
-			_whiteSpriteFlash.Flash(0.1f);
+			_whiteSpriteFlash.Flash(0.02f);
 			Fireball fireball = otherCollider.gameObject.GetComponent<Fireball> ();
 			ApplyDamage (fireball._damage, new Vector2 ((otherCollider.transform.position - transform.position).x < 0 ? 1 : -1, 1));
 		}

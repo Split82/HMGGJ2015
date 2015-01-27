@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -21,7 +21,7 @@ public class TraitsPanel : MonoBehaviour {
 			Image image = go.GetComponent<Image>();
 			image.rectTransform.localScale = Vector3.one;
 			image.rectTransform.localPosition = new Vector3(_lastTraitPosX, -5.0f, 0.0f);
-			image.sprite = CardsProperties.Instance.TraitForID(trait).icon;
+			image.sprite = CardsProperties.Instance.TraitPropertiesForTrait(trait).icon;
 			_lastTraitPosX += (_traitWidth + _separator);
 		};	
 	}

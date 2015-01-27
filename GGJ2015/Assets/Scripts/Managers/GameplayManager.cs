@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GameplayManager : Singleton<GameplayManager> {
@@ -49,8 +49,8 @@ public class GameplayManager : Singleton<GameplayManager> {
 		};
 
 		_cardsHandManager.CardWasChosenEvent += (CardsProperties.Card card) => {
-			TraitsManager.Instance.AddTrait(card.pos.id);
-			TraitsManager.Instance.AddTrait(card.neg.id);
+			TraitsManager.Instance.AddTrait(card.pos.trait);
+			TraitsManager.Instance.AddTrait(card.neg.trait);
 		};
 
 		EnemyManager.Instance.EnemyWasKilledEvent += () => {

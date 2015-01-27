@@ -9,15 +9,15 @@ public class ScreenTraits : MonoBehaviour {
 	
 	void Start () {
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("BARM", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.ScreenBlur, () => {
 			_blurEffect.enabled = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("AKUP", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.ScreenTwirl, () => {
 			_twirlEffect.enabled = true;
 		});
 
-		TraitsManager.Instance.RegisterForTraitWasAddedEvent("KLOK", () => {
+		TraitsManager.Instance.RegisterForTraitWasAddedEvent(TraitsManager.Trait.ScreenGrayscale, () => {
 			_grayscaleEffect.enabled = true;
 		});
 	}

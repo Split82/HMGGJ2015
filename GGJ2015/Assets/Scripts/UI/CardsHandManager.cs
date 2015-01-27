@@ -26,7 +26,7 @@ public class CardsHandManager : Singleton<CardsHandManager> {
 
 	void Start() {
 
-		Check.Array(_cardSlotsRectTransforms, kMaxNumberOfCards);	
+		Check.Array(_cardSlotsRectTransforms, kMaxNumberOfCards, false);	
 		Check.Null(_cardScreensAnimatorController);
 		Check.Null(_cardPrefab);
 
